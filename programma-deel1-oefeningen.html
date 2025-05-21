@@ -145,11 +145,19 @@
           ChatGPT of Claude) gebruiken om de code te analyseren, te laten
           uitvoeren met een voorbeeldgetal, en de werking te laten uitleggen.
         </p>
-        <code>
-          function(n) { let x = n; let y = 1; const e = 0.00001; // Tolerantie
-          voor precisie while (x - y > e) { x = (x + y) / 2; y = n / x; } return
-          x; }
-        </code>
+        <pre></pre><code>
+        function(n) { 
+            let x = n;
+            let y = 1;
+            const e = 0.00001; // Tolerantie voor precisie
+            while (x - y > e)
+                {
+                    x = (x + y) / 2;
+                    y = n / x;
+                }
+            return x;
+        }
+        </code></pre>
         <h4 class="mt-6">Jouw Missie:</h4>
         <ul>
           <li>

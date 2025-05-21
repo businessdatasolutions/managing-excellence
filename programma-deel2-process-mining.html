@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Process Mining Simulator: Zuivel Procurement - Mastermodule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Chart.js wordt hier geladen, essentieel voor de doorlooptijd grafiek -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Mermaid.js CDN en initialisatie -->
+    <!-- Mermaid.js CDN en initialisatie -->
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        fontFamily: '"Red Hat Text", sans-serif',
+        themeVariables: {
+          primaryColor: "#E0F2FE",
+          primaryTextColor: "#374151",
+          primaryBorderColor: "#C6E7FF",
+          lineColor: "#005A8D",
+          textColor: "#374151",
+          nodeBorderRadius: "8px",
+          fontSize: "16px", // <<<<<< VERHOOGD (was bijv. 16px, of default) - Experimenteer!
+
+          flowchart: {
+            // Specifiek voor flowcharts
+            nodeSpacing: 60, // <<<<<< TOEGEVOEGD/AANGEPAST - Horizontale ruimte
+            rankSpacing: 70, // <<<<<< TOEGEVOEGD/AANGEPAST - Verticale ruimte
+          },
+        },
+      });
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          font-family: "Red Hat Text", sans-serif;
+        }
+      }
+      .content-section {
+        @apply mb-12 p-6 bg-white rounded-lg shadow-xl;
+      }
+      .content-section h2 {
+        @apply text-3xl font-bold text-gray-800 mb-6 pb-3 border-b-4 border-[#FFDDAE];
+      }
+      .content-section h3 {
+        /* Voor hoofdsecties binnen een content-section, bijv. titel van een oefening */
+        @apply text-2xl font-semibold text-gray-700 mt-8 mb-4;
+      }
+      .content-section h4 {
+        /* Voor sub-kopjes, zoals "Voorbeeld Log Data", "Ontdekte Varianten" */
+        @apply text-xl font-medium text-gray-700 mt-6 mb-3;
+      }
+      .content-section p,
+      .content-section ul {
+        @apply text-gray-600 leading-relaxed mb-4;
+      }
+      .content-section ul {
+        @apply list-disc list-inside ml-4;
+      }
+      .content-section code {
+        @apply bg-gray-800 text-gray-100 p-4 rounded-md block whitespace-pre-wrap font-mono text-xs shadow-inner overflow-x-auto;
+        max-height: 300px;
+      }
+      .content-section .button {
+        @apply inline-block bg-[#005A8D] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105;
+      }
+      .back-link {
+        @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
+      }
+
+      .process-info {
+        @apply text-xs text-gray-500 italic block mt-1;
+      }
+
+      .result-block {
+        @apply mt-6 p-4 bg-gray-50 rounded-lg shadow-inner;
+      }
+      .result-block h4 {
+        /* Subkopjes binnen resultaten, bijv. "Ontdekte Proces Varianten" */
+        @apply text-lg font-semibold text-[#005A8D] mb-3;
+      }
+      .discovered-path {
+        @apply bg-white p-2 rounded shadow mb-2 border-l-4 text-xs;
+      }
+      .path-step {
+        @apply p-1 bg-gray-100 rounded mr-1 mb-1 inline-block break-words;
+        max-width: 150px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .path-frequency {
+        @apply text-xs font-bold text-blue-600 ml-2 whitespace-nowrap;
+      }
+      .chart-canvas-container {
+        @apply relative h-64 sm:h-72; /* Hoogte van de grafiek aanpassen */
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fbfbfb;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c6e7ff;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b0d9f7;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FBFBFB] text-gray-800 antialiased">
+    <!-- Header / Navbar -->
+    <header class="bg-[#C6E7FF] shadow-md">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-bold text-gray-700 hover:text-gray-900"
+          >Excellentie door Design: AI</a
+        >
+        <nav class="space-x-4">
+          <a href="index.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Home</a
+          >
+          <a href="over.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Over de Module</a
+          >
+          <a
+            href="programma.html"
+            class="text-gray-700 hover:text-[#FFDDAE] font-semibold"
+            >Programma</a
+          >
+          <a
+            href="voorbereiding.html"
+            class="text-gray-700 hover:text-[#FFDDAE]"
+            >Voorbereiding</a
+          >
+          <a href="contact.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <a href="programma-deel1.html" class="back-link"
+        >« Terug naar Programma Deel 1</a
+      >
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+        Process Mining Simulator
+      </h1>
+      <p class="text-xl text-gray-500 mb-10">
+        Een kijkje in de procurement van een Europees zuivelhandelsbedrijf.
+      </p>
+      <!-- 1. Visueel Schema van Procurement -->
+      <section class="content-section">
+        <h2>Fase 1: Het Ideale Procurement Proces (met Controle - TD Flow)</h2>
+        <p>
+          Dit is een vereenvoudigd beeld van het inkoopproces, inclusief een
+          kwaliteitscontrole en afhandeling van afwijkingen, gegenereerd met
+          Mermaid.js.
+        </p>
+
+        <pre
+          class="mermaid bg-white p-4 rounded-lg shadow-lg text-center overflow-x-auto"
+        >
+graph TD
+    A["Aanvraag PR Gemaakt (Intern)"] --> B["PO Gemaakt & Goedgekeurd"];
+    B --> C["PO Verzonden"];
+    C --> D["Goederen Ontvangen (Logistiek)"];
+    D --> QC{"Kwaliteitscontrole OK?"};
+
+    QC -- "Ja" --> E_OK["Factuur Verwerken (OK Pad)"];
+    E_OK --> FPAY_OK["Factuur Betaald (OK Pad)"];
+    FPAY_OK --> G_OK["Procurement Afgerond (OK)"];
+    
+    QC -- "Nee" --> PM["Probleem Gemeld (Procurement)"];
+    PM --> FB["Instructie: Factuur Blokkeren"];
+    FB --> PRSLV["Procurement Lost Probleem Op"];
+    PRSLV --> SFV["Signaal: Factuur Vrijgeven"];
+    SFV --> E_NOK["Factuur Verwerken (na Fix)"];
+    E_NOK --> FPAY_NOK["Factuur Betaald (na Fix)"];
+    FPAY_NOK --> G_NOK["Procurement Afgerond (na Fix)"];
+
+    %% Styling (ZONDER font-family hier)
+    classDef default fill:#E0F2FE,stroke:#C6E7FF,stroke-width:2px,color:#374151,rx:8,ry:8,padding:20px; 
+    classDef decision fill:#FFFFFF,stroke:#9CA3AF,color:#1F2937,rx:8,ry:8,padding:20px;
+    classDef problemPath fill:#FEFCE8,stroke:#FDE047,color:#713F12,rx:8,ry:8,padding:20px; 
+    classDef endNode fill:#D1FAE5,stroke:#6EE7B7,color:#065F46,rx:8,ry:8,padding:20px; 
+    
+    class A,B,C,D,E_OK,FPAY_OK default;
+    class QC decision;
+    class PM,FB,PRSLV,SFV,E_NOK,FPAY_NOK problemPath; 
+    class G_OK,G_NOK endNode;
+                </pre
+        >
+
+        <p class="mt-6 text-sm text-gray-500 text-center">
+          In werkelijkheid kunnen er veel meer stappen, controles, en
+          afwijkingen zijn.
+        </p>
+      </section>
+
+      <!-- 2. Dataset (Logfiles) -->
+      <section class="content-section">
+        <h2>Fase 2: De Digitale Sporen (ERP Logfiles)</h2>
+        <p>
+          Hieronder genereren we een dataset van 500 fictieve log-entries uit
+          een ERP systeem, die verschillende procurement transacties
+          representeren. Elke entry heeft een `Case ID`, een `Activiteit`, een
+          `Timestamp`, en andere relevante data.
+        </p>
+        <div class="mt-6">
+          <button id="generate-logs-button" class="button mb-4">
+            Genereer Log Data (500 entries)
+          </button>
+          <div id="log-data-output" class="hidden">
+            <h4>Voorbeeld Log Data:</h4>
+            <code id="log-data-preview">Log data wordt hier getoond...</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Simpele Process Mining Simulatie -->
+      <section class="content-section">
+        <h2>Fase 3: Process Mining in Actie</h2>
+        <p>
+          Nu gebruiken we de gegenereerde log data om het daadwerkelijke proces
+          te "ontdekken". Dit is een zeer vereenvoudigde vorm van process
+          mining.
+        </p>
+        <div class="mt-6">
+          <button
+            id="run-mining-button"
+            class="button opacity-50 cursor-not-allowed"
+            disabled
+          >
+            Start Process Mining
+          </button>
+
+          <div id="mining-results-container" class="result-block hidden">
+            <h4>Ontdekte Proces Varianten & Frequenties</h4>
+            <p class="text-xs text-gray-500 mb-3">
+              De meest voorkomende paden die transacties hebben gevolgd (top
+              10).
+            </p>
+            <div id="discovered-paths-output">
+              Resultaten worden hier getoond...
+            </div>
+
+            <h4 class="mt-8">Activiteit Frequenties</h4>
+            <p class="text-xs text-gray-500 mb-3">
+              Hoe vaak elke activiteit voorkomt in de logs.
+            </p>
+            <div
+              id="activity-frequency-output"
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
+            >
+              Statistieken worden hier getoond...
+            </div>
+
+            <h4 class="mt-8">
+              Doorlooptijd Analyse (PO Goedgekeurd tot Factuur Betaald)
+            </h4>
+            <p class="text-xs text-gray-500 mb-1">Norm: Maximaal 20 dagen.</p>
+            <p id="lead-time-summary" class="text-xs text-gray-600 mb-3"></p>
+            <div class="bg-white p-4 rounded-lg shadow chart-canvas-container">
+              <canvas id="lead-time-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <p>
+          © 2024 Mastermodule Excellentie door Design. Alle rechten
+          voorbehouden.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const generateLogsButton = document.getElementById(
+          "generate-logs-button"
+        );
+        const logDataOutputDiv = document.getElementById("log-data-output");
+        const logDataPreviewEl = document.getElementById("log-data-preview");
+        const runMiningButton = document.getElementById("run-mining-button");
+        const miningResultsContainer = document.getElementById(
+          "mining-results-container"
+        );
+        const discoveredPathsOutputEl = document.getElementById(
+          "discovered-paths-output"
+        );
+        const activityFrequencyOutputEl = document.getElementById(
+          "activity-frequency-output"
+        );
+        const leadTimeSummaryEl = document.getElementById("lead-time-summary");
+        let leadTimeChartInstance = null;
+
+        let rawLogData = [];
+
+        const BASE_ACTIVITIES = [
+          "Aanvraag PR Gemaakt",
+          "PO Gemaakt & Goedgekeurd",
+          "PO Verzonden",
+          "Goederen Ontvangen",
+          "Factuur Ontvangen",
+          "Factuur Betaald",
+          "Procurement Afgerond",
+        ];
+
+        const ACT_KWALITEITSCONTROLE = "Kwaliteitscontrole";
+        const ACT_PROBLEEM_GEMELD = "Probleem Gemeld";
+        const ACT_FACTUUR_BLOKKEREN = "Instructie: Factuur Blokkeren";
+        const ACT_PROCUREMENT_LOST_OP = "Procurement Lost Probleem Op";
+        const ACT_SIGNAAL_VRIJGEVEN = "Signaal: Factuur Vrijgeven";
+        const ACT_ONTERECHTE_BETALING =
+          "!! Onterechte Betaling na Kwaliteitsprobleem !!";
+
+        const PRODUCTS_DAIRY = [
+          "Volle Melkpoeder",
+          "Magere Melkpoeder",
+          "Weipoeder",
+          "Lactose",
+          "Boterolie",
+        ];
+        const SUPPLIERS_EUROPE = [
+          "NL Zuivel BV",
+          "DE MilchKontor",
+          "FR Laiterie SA",
+          "PL Mleko Sp",
+          "IE Dairy Ltd.",
+        ];
+        const RESOURCES_ERP = [
+          "P. Jansen",
+          "S. de Vries",
+          "AutoSysteem",
+          "M. Kowalski",
+          "L. Dupont",
+        ];
+
+        function generateIsoTimestamp(baseDate, daysOffset) {
+          const newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + daysOffset);
+          newDate.setHours(Math.floor(Math.random() * 8) + 9);
+          newDate.setMinutes(Math.floor(Math.random() * 60));
+          newDate.setSeconds(Math.floor(Math.random() * 60));
+          return newDate.toISOString();
+        }
+
+        generateLogsButton.addEventListener("click", () => {
+          rawLogData = [];
+          let logEntriesCount = 0;
+          let caseIdCounter = 1;
+          const startDate = new Date(2023, 0, 1);
+
+          while (logEntriesCount < 500) {
+            const currentCaseId = `CASE-${String(caseIdCounter).padStart(
+              4,
+              "0"
+            )}`;
+            const product =
+              PRODUCTS_DAIRY[Math.floor(Math.random() * PRODUCTS_DAIRY.length)];
+            const supplier =
+              SUPPLIERS_EUROPE[
+                Math.floor(Math.random() * SUPPLIERS_EUROPE.length)
+              ];
+            let daysOffset = Math.floor(Math.random() * 300);
+            let lastActivityResource =
+              RESOURCES_ERP[Math.floor(Math.random() * RESOURCES_ERP.length)];
+
+            let currentTransactionPath = [];
+
+            currentTransactionPath.push(BASE_ACTIVITIES[0]);
+            currentTransactionPath.push(BASE_ACTIVITIES[1]);
+
+            if (Math.random() > 0.05) {
+              // 95% kans dat PO wel verzonden wordt
+              currentTransactionPath.push(BASE_ACTIVITIES[2]);
+            }
+
+            currentTransactionPath.push(BASE_ACTIVITIES[3]);
+            currentTransactionPath.push(ACT_KWALITEITSCONTROLE);
+
+            const qualityOK = Math.random() > 0.2; // 80% kans dat kwaliteit OK is
+
+            if (qualityOK) {
+              currentTransactionPath.push(BASE_ACTIVITIES[4]);
+              if (Math.random() < 0.1) {
+                // 10% kans op betalingsherinnering in OK pad
+                currentTransactionPath.push("Betalingsherinnering Ontvangen");
+              }
+              currentTransactionPath.push(BASE_ACTIVITIES[5]);
+              currentTransactionPath.push(BASE_ACTIVITIES[6]);
+            } else {
+              // Kwaliteit NIET OK
+              currentTransactionPath.push(ACT_PROBLEEM_GEMELD);
+
+              const incorrectPaymentChance = Math.random();
+              if (incorrectPaymentChance < 0.3) {
+                // 30% kans op incorrecte betaling
+                currentTransactionPath.push(ACT_ONTERECHTE_BETALING);
+                currentTransactionPath.push(BASE_ACTIVITIES[4]); // Factuur Ontvangen (alsnog)
+                currentTransactionPath.push(BASE_ACTIVITIES[5]); // Factuur Betaald (onterecht)
+                currentTransactionPath.push(BASE_ACTIVITIES[6]); // Procurement Afgerond (onterecht)
+              } else {
+                // Normaal "Niet OK" pad
+                currentTransactionPath.push(ACT_FACTUUR_BLOKKEREN);
+                currentTransactionPath.push(ACT_PROCUREMENT_LOST_OP);
+                currentTransactionPath.push(ACT_SIGNAAL_VRIJGEVEN);
+                currentTransactionPath.push(BASE_ACTIVITIES[4]); // Factuur Ontvangen (na fix)
+                currentTransactionPath.push(BASE_ACTIVITIES[5]); // Factuur Betaald (na fix)
+                currentTransactionPath.push(BASE_ACTIVITIES[6]); // Procurement Afgerond (na fix)
+              }
+            }
+
+            for (const activity of currentTransactionPath) {
+              if (logEntriesCount >= 500) break;
+
+              if (Math.random() < 0.3) {
+                lastActivityResource =
+                  RESOURCES_ERP[
+                    Math.floor(Math.random() * RESOURCES_ERP.length)
+                  ];
+              }
+
+              let activityDuration;
+              if (activity === ACT_PROCUREMENT_LOST_OP) {
+                activityDuration = Math.floor(Math.random() * 4) + 6; // 6-9 dagen
+              } else if (
+                activity === ACT_KWALITEITSCONTROLE ||
+                activity === "Betalingsherinnering Ontvangen"
+              ) {
+                activityDuration = Math.floor(Math.random() * 3) + 2; // 2-4 dagen
+              } else {
+                activityDuration = Math.floor(Math.random() * 5) + 3; // 3-7 dagen voor de meeste stappen
+              }
+              // De daysOffset wordt hieronder in de rawLogData push berekend door de huidige daysOffset + activityDuration te nemen voor de *volgende* stap.
+              // Voor de *huidige* stap gebruiken we de daysOffset *voordat* activityDuration is toegevoegd.
+              // We slaan de timestamp op en verhogen daarna pas de daysOffset voor de volgende activiteit.
+
+              rawLogData.push({
+                case_id: currentCaseId,
+                activity: activity,
+                timestamp: generateIsoTimestamp(startDate, daysOffset), // Timestamp *voor* deze activiteit
+                product: product,
+                supplier: supplier,
+                resource: lastActivityResource,
+              });
+              daysOffset += activityDuration; // Verhoog daysOffset voor de *volgende* activiteit
+
+              logEntriesCount++;
+            }
+            caseIdCounter++;
+          }
+
+          rawLogData.sort(
+            (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
+          );
+
+          let previewHtml = `Totaal ${rawLogData.length} log entries gegenereerd.\nVoorbeeld van de eerste 10:\n\n`;
+          previewHtml += rawLogData
+            .slice(0, 10)
+            .map(
+              (log) =>
+                `Case: ${log.case_id}, Act: ${log.activity.substring(
+                  0,
+                  40
+                )}, Time: ${log.timestamp.substring(0, 19)}, Res: ${
+                  log.resource
+                }`
+            )
+            .join("\n");
+          logDataPreviewEl.textContent = previewHtml;
+          logDataOutputDiv.classList.remove("hidden");
+          runMiningButton.disabled = false;
+          runMiningButton.classList.remove("opacity-50", "cursor-not-allowed");
+          miningResultsContainer.classList.add("hidden");
+        });
+
+        runMiningButton.addEventListener("click", () => {
+          if (rawLogData.length === 0) {
+            alert("Genereer eerst log data!");
+            return;
+          }
+
+          const cases = {};
+          rawLogData.forEach((log) => {
+            if (!cases[log.case_id]) {
+              cases[log.case_id] = [];
+            }
+            cases[log.case_id].push(log);
+          });
+
+          // Sorteer events binnen elke case op timestamp (is al globaal gesorteerd, maar dubbelcheck kan geen kwaad per case)
+          for (const caseId in cases) {
+            cases[caseId].sort(
+              (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
+            );
+          }
+
+          const pathFrequencies = {};
+          const activityCounts = {};
+          const leadTimes = [];
+          const leadTimeNorm = 20;
+          let withinNormCount = 0;
+          let exceededNormCount = 0;
+
+          const leadTimeStartActivity = BASE_ACTIVITIES[1]; // "PO Gemaakt & Goedgekeurd"
+          const leadTimeEndActivity = BASE_ACTIVITIES[5]; // "Factuur Betaald"
+
+          for (const caseId in cases) {
+            const currentCaseEvents = cases[caseId];
+            const path = currentCaseEvents
+              .map((log) => log.activity)
+              .join(" → ");
+            pathFrequencies[path] = (pathFrequencies[path] || 0) + 1;
+
+            let startTime = null;
+            let endTime = null;
+
+            for (const log of currentCaseEvents) {
+              // Gebruik for...of voor betere leesbaarheid
+              activityCounts[log.activity] =
+                (activityCounts[log.activity] || 0) + 1;
+
+              if (log.activity === leadTimeStartActivity && !startTime) {
+                startTime = new Date(log.timestamp);
+              }
+              // Zoek naar de eerste keer "Factuur Betaald" *na* de starttijd
+              if (
+                log.activity === leadTimeEndActivity &&
+                startTime &&
+                !endTime
+              ) {
+                const currentEventTime = new Date(log.timestamp);
+                if (currentEventTime > startTime) {
+                  // Zorg dat eindtijd na starttijd is
+                  endTime = currentEventTime;
+                }
+              }
+            }
+
+            if (startTime && endTime) {
+              // endTime > startTime is al gecheckt
+              const durationMs = endTime - startTime;
+              const durationDays = durationMs / (1000 * 60 * 60 * 24);
+              leadTimes.push(durationDays);
+
+              if (durationDays <= leadTimeNorm) {
+                withinNormCount++;
+              } else {
+                exceededNormCount++;
+              }
+            }
+          }
+
+          const sortedPaths = Object.entries(pathFrequencies).sort(
+            ([, a], [, b]) => b - a
+          );
+
+          discoveredPathsOutputEl.innerHTML = "";
+          sortedPaths.slice(0, 10).forEach(([path, count]) => {
+            const pathDiv = document.createElement("div");
+            pathDiv.className = "discovered-path";
+
+            if (path.includes(ACT_ONTERECHTE_BETALING)) {
+              pathDiv.style.borderColor = "#EF4444"; // Felrood
+              pathDiv.classList.add("font-semibold");
+            } else if (path.includes(ACT_PROBLEEM_GEMELD)) {
+              pathDiv.style.borderColor = "#FBBF24"; // Amber
+            } else if (
+              path.includes("Betalingsherinnering Ontvangen") ||
+              !path.includes(BASE_ACTIVITIES[2])
+            ) {
+              // Check for "PO Verzonden"
+              pathDiv.style.borderColor = "#F87171"; // Roodachtig
+            } else {
+              pathDiv.style.borderColor = "#6EE7B7"; // Groen
+            }
+
+            const stepsArray = path.split(" → ");
+            let stepsHtml = "";
+            stepsArray.forEach((step, index) => {
+              stepsHtml += `<span class="path-step" title="${step}">${
+                step.length > 25 ? step.substring(0, 22) + "..." : step
+              }</span>`;
+              if (index < stepsArray.length - 1) {
+                stepsHtml +=
+                  ' <span class="text-gray-300 mx-0 text-xs">→</span> ';
+              }
+            });
+
+            pathDiv.innerHTML = `${stepsHtml} <span class="path-frequency">(${count}x)</span>`;
+            discoveredPathsOutputEl.appendChild(pathDiv);
+          });
+
+          if (sortedPaths.length > 10) {
+            const morePathsP = document.createElement("p");
+            morePathsP.className = "text-xs text-gray-500 mt-2";
+            morePathsP.textContent = `... en ${
+              sortedPaths.length - 10
+            } andere unieke varianten.`;
+            discoveredPathsOutputEl.appendChild(morePathsP);
+          }
+
+          activityFrequencyOutputEl.innerHTML = "";
+          Object.entries(activityCounts)
+            .sort(([, a], [, b]) => b - a)
+            .forEach(([activity, count]) => {
+              const actDiv = document.createElement("div");
+              actDiv.className = "p-2 rounded text-xs";
+              if (activity === ACT_ONTERECHTE_BETALING) {
+                actDiv.classList.add("bg-red-100", "border", "border-red-300");
+                actDiv.innerHTML = `<span class="font-bold text-red-700">${activity}:</span> ${count}x`;
+              } else {
+                actDiv.classList.add("bg-sky-50");
+                actDiv.innerHTML = `<span class="font-semibold text-sky-700">${activity}:</span> ${count}x`;
+              }
+              activityFrequencyOutputEl.appendChild(actDiv);
+            });
+
+          if (leadTimes.length > 0) {
+            const averageLeadTime =
+              leadTimes.reduce((sum, lt) => sum + lt, 0) / leadTimes.length;
+            const minLeadTime = Math.min(...leadTimes);
+            const maxLeadTime = Math.max(...leadTimes);
+            leadTimeSummaryEl.innerHTML = `Gem. doorlooptijd: <strong>${averageLeadTime.toFixed(
+              1
+            )} dagen</strong> (Min: ${minLeadTime.toFixed(
+              1
+            )}, Max: ${maxLeadTime.toFixed(1)}).<br/>
+                                          ${exceededNormCount} transacties (<strong>${(
+              (exceededNormCount / leadTimes.length) *
+              100
+            ).toFixed(
+              1
+            )}%</strong>) overschreden de norm van ${leadTimeNorm} dagen.`;
+          } else {
+            leadTimeSummaryEl.textContent =
+              "Geen volledige doorlooptijden gevonden voor de geselecteerde activiteiten.";
+          }
+          renderLeadTimeChart(withinNormCount, exceededNormCount);
+
+          miningResultsContainer.classList.remove("hidden");
+        });
+
+        function renderLeadTimeChart(withinCount, exceededCount) {
+          const ctx = document.getElementById("lead-time-chart");
+          if (!ctx) {
+            console.error("Canvas with ID 'lead-time-chart' not found.");
+            return;
+          }
+
+          if (leadTimeChartInstance) {
+            leadTimeChartInstance.destroy();
+          }
+
+          leadTimeChartInstance = new Chart(ctx.getContext("2d"), {
+            type: "bar",
+            data: {
+              labels: ["Binnen Norm", "Norm Overschreden"],
+              datasets: [
+                {
+                  label: "Aantal Transacties",
+                  data: [withinCount, exceededCount],
+                  backgroundColor: [
+                    "rgba(75, 192, 192, 0.7)",
+                    "rgba(255, 99, 132, 0.7)",
+                  ],
+                  borderColor: ["rgb(75, 192, 192)", "rgb(255, 99, 132)"],
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              indexAxis: "y",
+              scales: {
+                x: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Aantal Transacties",
+                  },
+                },
+                y: {
+                  ticks: {
+                    font: {
+                      weight: "bold",
+                    },
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: false,
+                },
+                title: {
+                  display: true,
+                  text: "Doorlooptijd vs. Norm (20 dagen)",
+                  font: {
+                    size: 14,
+                  },
+                },
+              },
+            },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
