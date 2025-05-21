@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Paradigma's: Trends & Markt Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+      /* Chosen Palette: Energetic & Playful */
+      /* Primary: #FF6B6B (Rood/Roze) */
+      /* Secondary: #FFD166 (Geel) */
+      /* Accent 1: #06D6A0 (Groen/Turquoise) */
+      /* Accent 2: #118AB2 (Blauw) */
+      /* Text/Dark: #073B4C (Donkerblauw) */
+
+      .bg-primary {
+        background-color: #ff6b6b;
+      }
+      .text-primary {
+        color: #ff6b6b;
+      }
+      .border-primary {
+        border-color: #ff6b6b;
+      }
+
+      .bg-secondary {
+        background-color: #ffd166;
+      }
+      .text-secondary {
+        color: #ffd166;
+      }
+
+      .bg-accent-1 {
+        background-color: #06d6a0;
+      }
+      .text-accent-1 {
+        color: #06d6a0;
+      }
+
+      .bg-accent-2 {
+        background-color: #118ab2;
+      }
+      .text-accent-2 {
+        color: #118ab2;
+      }
+
+      .text-dark {
+        color: #073b4c;
+      }
+      .bg-dark {
+        background-color: #073b4c;
+      }
+
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 350px;
+        max-height: 400px;
+      }
+      @media (max-width: 768px) {
+        .chart-container {
+          height: 300px;
+          max-height: 350px;
+        }
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: #118ab2; /* Accent 2 */
+      }
+      .timeline-item {
+        position: relative;
+        width: 50%;
+        padding: 20px 40px;
+        box-sizing: border-box;
+      }
+      .timeline-item:nth-child(odd) {
+        left: 0;
+        padding-left: 20px; /* Adjusted padding for odd items */
+      }
+      .timeline-item:nth-child(even) {
+        left: 50%;
+        padding-right: 20px; /* Adjusted padding for even items */
+      }
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: white;
+        border: 4px solid #ff6b6b; /* Primary */
+        top: 20px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .timeline-item:nth-child(even)::after {
+        left: -10px;
+      }
+      .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .card {
+        background-color: white;
+        border-radius: 0.5rem; /* rounded-lg */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        padding: 1.5rem; /* p-6 */
+        margin-bottom: 1.5rem; /* mb-6 */
+      }
+      .flowchart-node {
+        border: 2px solid #118ab2; /* Accent 2 */
+        /* padding: 0.75rem 1.25rem; /* py-3 px-5 */ /* Default padding, overridden by p-4 for consistency */
+        border-radius: 0.375rem; /* rounded-md */
+        /* background-color: white; /* Default, overridden by specific bg colors */
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .flowchart-arrow {
+        position: relative;
+        text-align: center;
+        font-size: 2rem;
+        color: #073b4c; /* Dark */
+        margin: 0.5rem 0;
+      }
+      .flowchart-arrow::after {
+        content: "▼"; /* Down arrow, or use →, ←, ↑ as needed */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-dark">
+    <nav class="sticky-nav bg-dark text-white shadow-lg">
+      <div
+        class="container mx-auto px-6 py-3 flex flex-wrap justify-center items-center"
+      >
+        <a
+          href="#intro"
+          class="text-sm sm:text-base hover:text-secondary px-2 sm:px-3 py-1"
+          >Intro</a
+        >
+        <a
+          href="#pijlers"
+          class="text-sm sm:text-base hover:text-secondary px-2 sm:px-3 py-1"
+          >Pijlers</a
+        >
+        <a
+          href="#tijdlijn"
+          class="text-sm sm:text-base hover:text-secondary px-2 sm:px-3 py-1"
+          >Tijdlijn</a
+        >
+        <a
+          href="#vergelijking"
+          class="text-sm sm:text-base hover:text-secondary px-2 sm:px-3 py-1"
+          >Vergelijking</a
+        >
+        <a
+          href="#toepassingen"
+          class="text-sm sm:text-base hover:text-secondary px-2 sm:px-3 py-1"
+          >Toepassingen</a
+        >
+        <a
+          href="#toekomst"
+          class="text-sm sm:text-base hover:text-secondary px-2 sm:px-3 py-1"
+          >Toekomst</a
+        >
+        <a
+          href="#uitdagingen"
+          class="text-sm sm:text-base hover:text-secondary px-2 sm:px-3 py-1"
+          >Uitdagingen</a
+        >
+      </div>
+    </nav>
+
+    <header id="intro" class="bg-accent-2 text-white py-16 px-6 text-center">
+      <div class="container mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          AI-Paradigma's: Een Visuele Verkenning
+        </h1>
+        <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+          Een duik in de trends, marktinzichten en de toekomst van Symbolische,
+          Statistische en Belichaamde Intelligentie, gebaseerd op diepgaand
+          onderzoek.
+        </p>
+        <div class="flex justify-center space-x-4 text-5xl">
+          <span>🧠</span> <span>📊</span> <span>🤖</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section id="pijlers" class="py-12">
+        <h2 class="text-3xl font-bold text-center mb-2 text-dark">
+          De Drie Pijlers van AI
+        </h2>
+        <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
+          Kunstmatige intelligentie steunt op diverse fundamentele benaderingen.
+          We belichten de kern van Symbolische, Statistische en Belichaamde AI,
+          elk met een unieke kijk op het creëren van intelligentie.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card text-center">
+            <div class="text-6xl mb-4">🧠</div>
+            <h3 class="text-2xl font-semibold mb-3 text-primary">
+              Symbolische AI
+            </h3>
+            <p class="text-gray-600">
+              Intelligentie door
+              <strong class="font-semibold">expliciete regels en logica</strong
+              >. Kennis wordt gecodeerd en gemanipuleerd via symbolen.
+            </p>
+            <p class="text-sm mt-2 text-gray-500">
+              Kern: Kennisrepresentatie, Inferentie.
+            </p>
+          </div>
+          <div class="card text-center">
+            <div class="text-6xl mb-4">📊</div>
+            <h3 class="text-2xl font-semibold mb-3 text-accent-1">
+              Statistische AI
+            </h3>
+            <p class="text-gray-600">
+              Intelligentie door te
+              <strong class="font-semibold">leren uit data en patronen</strong>.
+              Algoritmen ontdekken verbanden en maken voorspellingen.
+            </p>
+            <p class="text-sm mt-2 text-gray-500">
+              Kern: Machine Learning, Neurale Netwerken.
+            </p>
+          </div>
+          <div class="card text-center">
+            <div class="text-6xl mb-4">🤖</div>
+            <h3 class="text-2xl font-semibold mb-3 text-accent-2">
+              Belichaamde AI
+            </h3>
+            <p class="text-gray-600">
+              Intelligentie door
+              <strong class="font-semibold"
+                >fysieke interactie en ervaring</strong
+              >. Leren door te doen in een dynamische omgeving.
+            </p>
+            <p class="text-sm mt-2 text-gray-500">
+              Kern: Sensorimotorische Koppeling, Wereldmodellen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tijdlijn" class="py-12">
+        <h2 class="text-3xl font-bold text-center mb-2 text-dark">
+          Tijdlijn van AI-Innovatie
+        </h2>
+        <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
+          De evolutie van AI is een reis van doorbraken, winters en hernieuwde
+          zomers. Deze tijdlijn toont cruciale mijlpalen die de verschillende
+          paradigma's hebben gevormd.
+        </p>
+        <div class="relative max-w-4xl mx-auto timeline">
+          <div class="timeline-item">
+            <div class="card">
+              <h4 class="font-semibold text-lg text-primary">
+                1950s-1960s: Basis Symbolische AI
+              </h4>
+              <p class="text-sm text-gray-600">
+                Logic Theorist (1956), LISP. Focus op logisch redeneren en
+                probleemoplossing.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="card">
+              <h4 class="font-semibold text-lg text-accent-1">
+                1950s-1970s: Vroege Statistische Concepten
+              </h4>
+              <p class="text-sm text-gray-600">
+                Perceptron (1957), vroege patroonherkenning. Basis voor machine
+                learning.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="card">
+              <h4 class="font-semibold text-lg text-primary">
+                1970s-1980s: Expertsystemen Bloeien
+              </h4>
+              <p class="text-sm text-gray-600">
+                MYCIN, DENDRAL, XCON. Symbolische AI domineert met praktische
+                toepassingen.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="card">
+              <h4 class="font-semibold text-lg text-accent-2">
+                1980s: Nouvelle AI & Belichaming
+              </h4>
+              <p class="text-sm text-gray-600">
+                Rodney Brooks' werk legt nadruk op interactie met de reële
+                wereld voor robots.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="card">
+              <h4 class="font-semibold text-lg text-accent-1">
+                1980s-1990s: Neurale Netwerken Herleven
+              </h4>
+              <p class="text-sm text-gray-600">
+                Backpropagation, CNNs (LeCun), LSTM. Fundament voor deep
+                learning.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="card">
+              <h4 class="font-semibold text-lg text-accent-1">
+                2010s-Heden: Deep Learning Revolutie
+              </h4>
+              <p class="text-sm text-gray-600">
+                AlexNet (2012), AlphaGo (2016), opkomst van LLMs (GPT-serie).
+                Statistische AI leidt.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="card">
+              <h4 class="font-semibold text-lg text-accent-2">
+                2010s-Heden: Groei Belichaamde AI
+              </h4>
+              <p class="text-sm text-gray-600">
+                Vooruitgang in robotica, zelfrijdende auto's, drones, mede
+                dankzij Deep Reinforcement Learning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="vergelijking" class="py-12">
+        <h2 class="text-3xl font-bold text-center mb-2 text-dark">
+          Paradigma's in Perspectief: Krachten & Zwaktes
+        </h2>
+        <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
+          Elk AI-paradigma biedt unieke voordelen maar kent ook beperkingen. Een
+          vergelijkende analyse helpt de huidige trends en toekomstige behoeften
+          te begrijpen.
+        </p>
+        <div class="grid md:grid-cols-1 gap-8">
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-4 text-center text-dark">
+              Vergelijkende Radar Chart
+            </h3>
+            <div class="chart-container">
+              <canvas id="paradigmsRadarChart"></canvas>
+            </div>
+            <p class="text-sm text-gray-600 mt-4">
+              Deze grafiek vergelijkt de paradigma's op sleuteldimensies zoals
+              verklaarbaarheid, adaptiviteit, data-behoefte, robuustheid in de
+              echte wereld, grounding (koppeling aan realiteit), en
+              schaalbaarheid. Scores zijn indicatief (1=laag, 5=hoog).
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+          <div class="card">
+            <h4 class="text-lg font-semibold mb-2 text-primary">
+              Symbolische AI
+            </h4>
+            <p class="text-sm text-gray-700">
+              <strong class="text-green-600">Sterk:</strong> Verklaarbaar,
+              precies in afgebakende domeinen.
+            </p>
+            <p class="text-sm text-gray-700">
+              <strong class="text-red-600">Zwak:</strong> Moeite met
+              onzekerheid, beperkt leervermogen, broos.
+            </p>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold mb-2 text-accent-1">
+              Statistische AI
+            </h4>
+            <p class="text-sm text-gray-700">
+              <strong class="text-green-600">Sterk:</strong> Adaptief, leert uit
+              data, goed met complexe patronen.
+            </p>
+            <p class="text-sm text-gray-700">
+              <strong class="text-red-600">Zwak:</strong> "Black box",
+              data-hongerig, gevoelig voor bias.
+            </p>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold mb-2 text-accent-2">
+              Belichaamde AI
+            </h4>
+            <p class="text-sm text-gray-700">
+              <strong class="text-green-600">Sterk:</strong> Robuust in echte
+              wereld, grounding van kennis, leert fysieke taken.
+            </p>
+            <p class="text-sm text-gray-700">
+              <strong class="text-red-600">Zwak:</strong> Sim-to-real gap,
+              data-efficiëntie bij fysiek leren.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="toepassingen" class="py-12 bg-gray-50">
+        <h2 class="text-3xl font-bold text-center mb-2 text-dark">
+          AI in Actie: Toepassingsgebieden
+        </h2>
+        <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
+          De verschillende AI-paradigma's manifesteren zich in een breed scala
+          aan toepassingen die onze wereld transformeren. Hier zijn enkele
+          voorbeelden die de impact illustreren.
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card">
+            <div class="text-4xl mb-3">🩺</div>
+            <h3 class="text-xl font-semibold mb-2 text-primary">
+              Medische Expertsystemen
+            </h3>
+            <p class="text-sm text-gray-600">
+              Symbolische AI helpt bij diagnoses (bv. MYCIN) door medische
+              kennis en regels toe te passen.
+            </p>
+          </div>
+          <div class="card">
+            <div class="text-4xl mb-3">👁️</div>
+            <h3 class="text-xl font-semibold mb-2 text-accent-1">
+              Beeldherkenning
+            </h3>
+            <p class="text-sm text-gray-600">
+              Statistische AI (Deep Learning) analyseert beelden voor
+              objectdetectie, medische scans, etc.
+            </p>
+          </div>
+          <div class="card">
+            <div class="text-4xl mb-3">🚗</div>
+            <h3 class="text-xl font-semibold mb-2 text-accent-2">
+              Zelfrijdende Auto's
+            </h3>
+            <p class="text-sm text-gray-600">
+              Belichaamde AI (met statistische perceptie) navigeert complexe
+              verkeerssituaties.
+            </p>
+          </div>
+          <div class="card">
+            <div class="text-4xl mb-3">💬</div>
+            <h3 class="text-xl font-semibold mb-2 text-accent-1">
+              Natuurlijke Taalverwerking (LLMs)
+            </h3>
+            <p class="text-sm text-gray-600">
+              Statistische AI drijft geavanceerde chatbots, vertaling en
+              tekstgeneratie aan.
+            </p>
+          </div>
+          <div class="card">
+            <div class="text-4xl mb-3">🏭</div>
+            <h3 class="text-xl font-semibold mb-2 text-accent-2">
+              Industriële Robots
+            </h3>
+            <p class="text-sm text-gray-600">
+              Belichaamde AI automatiseert taken in productie en logistiek door
+              fysieke interactie.
+            </p>
+          </div>
+          <div class="card">
+            <div class="text-4xl mb-3">📈</div>
+            <h3 class="text-xl font-semibold mb-2 text-accent-1">
+              Voorspellende Analyse
+            </h3>
+            <p class="text-sm text-gray-600">
+              Statistische modellen voorspellen markttrends, klantgedrag en
+              onderhoudsbehoeften.
+            </p>
+          </div>
+        </div>
+        <div class="mt-10 text-center card">
+          <h3 class="text-2xl font-bold text-accent-1 mb-2">
+            Marktgroei AI Verwacht
+          </h3>
+          <p class="text-5xl font-bold text-primary my-4">$1.5 Biljoen+</p>
+          <p class="text-gray-600">
+            Geschatte wereldwijde AI-marktwaarde tegen 2030, wat de enorme
+            economische impact en trend aangeeft (indicatief cijfer).
+          </p>
+        </div>
+      </section>
+
+      <section id="toekomst" class="py-12">
+        <h2 class="text-3xl font-bold text-center mb-2 text-dark">
+          De Toekomst is Hybride: Synergie en Convergentie
+        </h2>
+        <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
+          De grenzen tussen AI-paradigma's vervagen. De trend is duidelijk:
+          integratie van hun sterktes leidt tot robuustere en intelligentere
+          systemen. Neuro-symbolische AI en geavanceerde belichaamde systemen
+          wijzen de weg.
+        </p>
+
+        <div class="card md:col-span-2 mb-8">
+          <h3 class="text-xl font-semibold text-center mb-6 text-dark">
+            Convergentie van AI Paradigma's
+          </h3>
+          <div class="flex flex-col items-center space-y-4">
+            <div class="flex flex-col md:flex-row md:space-x-8 items-center">
+              <div
+                class="flowchart-node bg-primary text-dark font-semibold text-lg p-4"
+              >
+                Symbolische AI (Regels, Logica)
+              </div>
+              <div
+                class="flowchart-arrow md:rotate-[-90deg] my-2 md:my-0"
+              ></div>
+              <div
+                class="flowchart-node bg-accent-1 text-dark font-semibold text-lg p-4"
+              >
+                Statistische AI (Data, Patronen)
+              </div>
+            </div>
+            <div class="flowchart-arrow"></div>
+            <div
+              class="flowchart-node bg-secondary text-dark font-semibold text-lg p-4"
+            >
+              Neuro-Symbolische AI (Leren + Redeneren)
+            </div>
+            <div class="flowchart-arrow"></div>
+            <div
+              class="flowchart-node bg-accent-2 text-dark font-semibold text-lg p-4"
+            >
+              Belichaamde AI (Interactie, Wereldmodel)
+            </div>
+            <div class="flowchart-arrow"></div>
+            <div
+              class="bg-dark text-white p-6 rounded-lg shadow-xl text-center"
+            >
+              <h4 class="text-2xl font-bold mb-2">Geïntegreerde AI</h4>
+              <p class="text-sm">
+                Combineert perceptie, leren, redeneren en fysieke actie voor
+                <strong class="text-secondary">Common Sense</strong> en
+                <strong class="text-secondary">Robuuste Wereldmodellen</strong>.
+              </p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mt-6 text-center">
+            Deze visualisatie toont hoe Symbolische en Statistische AI kunnen
+            samensmelten in Neuro-Symbolische systemen. Belichaamde AI
+            integreert vaak elementen van beide, strevend naar een holistische,
+            geïntegreerde intelligentie.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-3 text-dark">
+              Focus: Wereldmodellen
+            </h3>
+            <p class="text-gray-600">
+              AI-systemen ontwikkelen interne representaties van hun omgeving om
+              acties te plannen en te voorspellen. Belichaamde interactie is
+              cruciaal voor het
+              <strong class="font-semibold">gronden</strong> van deze modellen
+              in de realiteit.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-3 text-dark">
+              Focus: Common Sense Reasoning
+            </h3>
+            <p class="text-gray-600">
+              Het vermogen om alledaagse situaties te begrijpen en intuïtief te
+              redeneren. Een heilige graal voor AI, waarschijnlijk voortkomend
+              uit een combinatie van
+              <strong class="font-semibold"
+                >ervaring, logica en geleerde patronen</strong
+              >.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="uitdagingen" class="py-12 bg-gray-50">
+        <h2 class="text-3xl font-bold text-center mb-2 text-dark">
+          Uitdagingen op de Weg naar Geavanceerde AI
+        </h2>
+        <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
+          Ondanks de snelle vooruitgang, blijven er significante hordes te
+          nemen. Deze uitdagingen beïnvloeden de ontwikkeling en adoptie van
+          AI-technologieën in diverse markten.
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="card">
+            <h3 class="text-lg font-semibold mb-2 text-primary">
+              Kennisacquisitie
+            </h3>
+            <p class="text-sm text-gray-600">
+              (Symbolisch) Het handmatig coderen van complete en accurate kennis
+              is een enorme opgave.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-semibold mb-2 text-accent-1">
+              Verklaarbaarheid & Bias
+            </h3>
+            <p class="text-sm text-gray-600">
+              (Statistisch) "Black box" modellen en ingebedde vooroordelen in
+              data blijven grote zorgen.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-semibold mb-2 text-accent-2">
+              Sim-to-Real Gap & Veiligheid
+            </h3>
+            <p class="text-sm text-gray-600">
+              (Belichaamd) Overdracht van simulatie naar de echte wereld en het
+              waarborgen van veilige interactie.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-semibold mb-2 text-dark">
+              Integratiecomplexiteit
+            </h3>
+            <p class="text-sm text-gray-600">
+              (Hybride) Het naadloos combineren van fundamenteel verschillende
+              AI-benaderingen is technisch uitdagend.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-8 px-6">
+      <p class="mb-2">
+        &copy; 2025 AI Paradigma Infographic. Gebaseerd op diepgaand onderzoek.
+      </p>
+      <p class="text-sm">
+        Deze infographic visualiseert trends en concepten uit het
+        AI-onderzoeksrapport.
+      </p>
+    </footer>
+
+    <script>
+      function wrapLabel(label, maxWidth = 16) {
+        if (typeof label !== "string") return label;
+        if (label.length <= maxWidth) return label;
+
+        const words = label.split(" ");
+        const lines = [];
+        let currentLine = "";
+
+        for (const word of words) {
+          if (
+            (currentLine + word).length > maxWidth &&
+            currentLine.length > 0
+          ) {
+            lines.push(currentLine.trim());
+            currentLine = "";
+          }
+          currentLine += word + " ";
+        }
+        if (currentLine.trim().length > 0) {
+          lines.push(currentLine.trim());
+        }
+        return lines.length > 0 ? lines : [label];
+      }
+
+      const tooltipTitleCallback = function (tooltipItems) {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+          return label.join(" ");
+        }
+        return label;
+      };
+
+      const radarCtx = document
+        .getElementById("paradigmsRadarChart")
+        .getContext("2d");
+      const radarData = {
+        labels: [
+          wrapLabel("Verklaarbaarheid"),
+          wrapLabel("Adaptiviteit"),
+          wrapLabel("Data Behoefte (laag=beter)"),
+          wrapLabel("Robuustheid Echte Wereld"),
+          wrapLabel("Grounding Kennis"),
+          wrapLabel("Schaalbaarheid"),
+        ],
+        datasets: [
+          {
+            label: "Symbolische AI",
+            data: [5, 1, 4, 2, 1, 2],
+            backgroundColor: "rgba(255, 107, 107, 0.2)",
+            borderColor: "#FF6B6B",
+            pointBackgroundColor: "#FF6B6B",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#FF6B6B",
+          },
+          {
+            label: "Statistische AI",
+            data: [1, 5, 1, 3, 2, 4],
+            backgroundColor: "rgba(6, 214, 160, 0.2)",
+            borderColor: "#06D6A0",
+            pointBackgroundColor: "#06D6A0",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#06D6A0",
+          },
+          {
+            label: "Belichaamde AI",
+            data: [2, 4, 3, 5, 5, 3],
+            backgroundColor: "rgba(17, 138, 178, 0.2)",
+            borderColor: "#118AB2",
+            pointBackgroundColor: "#118AB2",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#118AB2",
+          },
+        ],
+      };
+      new Chart(radarCtx, {
+        type: "radar",
+        data: radarData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          elements: {
+            line: {
+              borderWidth: 3,
+            },
+          },
+          scales: {
+            r: {
+              angleLines: { display: true },
+              suggestedMin: 0,
+              suggestedMax: 5,
+              pointLabels: {
+                font: {
+                  size: 9,
+                },
+                callback: function (label) {
+                  if (Array.isArray(label)) return label;
+                  return wrapLabel(label, 10);
+                },
+              },
+              ticks: {
+                stepSize: 1,
+              },
+            },
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                title: function (tooltipItems) {
+                  return tooltipItems[0].dataset.label;
+                },
+                label: function (tooltipItem) {
+                  let label =
+                    tooltipItem.chart.data.labels[tooltipItem.dataIndex];
+                  if (Array.isArray(label)) {
+                    label = label.join(" ");
+                  }
+                  return label + ": " + tooltipItem.formattedValue;
+                },
+              },
+            },
+            legend: {
+              position: "top",
+              labels: {
+                font: {
+                  size: 12,
+                },
+              },
+            },
+          },
+        },
+      });
+
+      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

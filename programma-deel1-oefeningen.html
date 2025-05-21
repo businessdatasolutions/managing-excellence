@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oefeningen: Symbolische vs. Statistische AI - Mastermodule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          font-family: "Red Hat Text", sans-serif;
+        }
+      }
+      .content-section {
+        @apply mb-12 p-6 bg-white rounded-lg shadow-xl; /* Extra shadow voor "amazing" */
+      }
+      .content-section h2 {
+        @apply text-3xl font-bold text-gray-800 mb-6 pb-3 border-b-4 border-[#FFDDAE]; /* Dikkere border voor accent */
+      }
+      .content-section h3 {
+        @apply text-2xl font-semibold text-gray-700 mt-8 mb-4;
+      }
+      .content-section h4 {
+        @apply text-xl font-medium text-gray-700 mt-6 mb-3;
+      }
+      .content-section p,
+      .content-section ul {
+        @apply text-gray-600 leading-relaxed mb-4;
+      }
+      .content-section ul {
+        @apply list-disc list-inside ml-4;
+      }
+      .content-section code {
+        @apply bg-gray-100 text-gray-700 p-4 rounded-md block whitespace-pre-wrap font-mono text-sm shadow;
+      }
+      .content-section .button {
+        @apply inline-block bg-[#005A8D] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105;
+      }
+      .content-section .button-secondary {
+        @apply inline-block bg-[#FFDDAE] text-gray-800 font-semibold py-2 px-5 rounded-lg hover:bg-opacity-80 transition duration-300 shadow hover:shadow-md text-sm;
+      }
+      .back-link {
+        @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
+      }
+      .monty-hall-door {
+        @apply w-24 h-36 sm:w-32 sm:h-48 bg-[#C6E7FF] border-4 border-[#005A8D] rounded-lg flex flex-col items-center justify-center text-4xl font-bold text-[#005A8D] cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+      }
+      .monty-hall-door.selected {
+        @apply border-[#FFDDAE] ring-4 ring-[#FFDDAE] ring-opacity-75 scale-105;
+      }
+      .monty-hall-door.opened {
+        @apply bg-white cursor-default;
+      }
+      .monty-hall-door .prize {
+        @apply text-3xl sm:text-5xl;
+      }
+
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fbfbfb;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c6e7ff;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b0d9f7;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FBFBFB] text-gray-800 antialiased">
+    <!-- Header / Navbar -->
+    <header class="bg-[#C6E7FF] shadow-md">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-bold text-gray-700 hover:text-gray-900"
+          >Excellentie door Design: AI</a
+        >
+        <nav class="space-x-4">
+          <a href="index.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Home</a
+          >
+          <a href="over.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Over de Module</a
+          >
+          <a
+            href="programma.html"
+            class="text-gray-700 hover:text-[#FFDDAE] font-semibold"
+            >Programma</a
+          >
+          <a
+            href="voorbereiding.html"
+            class="text-gray-700 hover:text-[#FFDDAE]"
+            >Voorbereiding</a
+          >
+          <a href="contact.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <a href="programma-deel1.html" class="back-link"
+        >« Terug naar Programma Deel 1</a
+      >
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+        Oefeningen: Symbolisch vs. Statistisch
+      </h1>
+      <p class="text-xl text-gray-500 mb-10">
+        Duik in de wereld van AI-paradigma's met deze interactieve uitdagingen!
+      </p>
+
+      <!-- Oefening 1: Het Algoritme -->
+      <section class="content-section">
+        <h2>Oefening 1: De Mysterieuze Functie (Symbolisch Denken)</h2>
+        <p>
+          Bekijk het volgende algoritme. Wat doet het? Je mag een AI (zoals
+          ChatGPT of Claude) gebruiken om de code te analyseren, te laten
+          uitvoeren met een voorbeeldgetal, en de werking te laten uitleggen.
+        </p>
+        <code>
+          function(n) { let x = n; let y = 1; const e = 0.00001; // Tolerantie
+          voor precisie while (x - y > e) { x = (x + y) / 2; y = n / x; } return
+          x; }
+        </code>
+        <h4 class="mt-6">Jouw Missie:</h4>
+        <ul>
+          <li>
+            Laat een AI de functie in een programmeertaal (bv. JavaScript of
+            Python) implementeren.
+          </li>
+          <li>
+            Test de functie met verschillende positieve getallen (bijv. 2, 9,
+            16, 25, 100). Wat valt je op aan de output?
+          </li>
+          <li>
+            Vraag de AI om de wiskundige methode achter dit algoritme uit te
+            leggen.
+          </li>
+          <li>
+            Is dit algoritme <strong>deterministisch</strong>? Dat wil zeggen,
+            geeft het altijd exact dezelfde output voor dezelfde input? Waarom
+            (niet)?
+          </li>
+        </ul>
+        <div
+          id="symbolic-explanation"
+          class="mt-6 p-4 bg-[#D4F6FF] bg-opacity-50 rounded-md hidden"
+        >
+          <h4 class="!mt-0 !mb-2 text-[#005A8D]">
+            Uitleg & Antwoord (Symbolisch)
+          </h4>
+          <p class="text-sm text-gray-700">
+            Dit algoritme berekent de <strong>vierkantswortel</strong> van een
+            getal `n` met behulp van de Babylonische methode (ook wel Heron's
+            methode genoemd). Het is een iteratieve methode die steeds dichter
+            bij de werkelijke wortel komt.
+          </p>
+          <p class="text-sm text-gray-700"><strong>Kenmerken:</strong></p>
+          <ul class="text-sm list-disc list-inside text-gray-700">
+            <li>
+              <strong>Deterministisch:</strong> Ja, voor een gegeven input `n`
+              en een vaste tolerantie `e`, zal het algoritme altijd convergeren
+              naar (nagenoeg) dezelfde waarde. De stappen zijn exact
+              gedefinieerd.
+            </li>
+            <li>
+              <strong>Logisch en Regelgebaseerd:</strong> De werking volgt een
+              duidelijke set wiskundige regels.
+            </li>
+            <li>
+              <strong>Symbolische AI affiniteit:</strong> Dit soort algoritmen,
+              waar de logica en stappen expliciet zijn, sluit aan bij de
+              principes van symbolische AI (Good Old-Fashioned AI - GOFAI).
+            </li>
+          </ul>
+        </div>
+        <button
+          onclick="document.getElementById('symbolic-explanation').classList.toggle('hidden'); this.textContent = document.getElementById('symbolic-explanation').classList.contains('hidden') ? 'Toon Uitleg Oefening 1' : 'Verberg Uitleg Oefening 1';"
+          class="button-secondary mt-4"
+        >
+          Toon Uitleg Oefening 1
+        </button>
+      </section>
+
+      <!-- Oefening 2: Monty Hall Probleem -->
+      <section class="content-section">
+        <h2>Oefening 2: Het Monty Hall Dilemma (Statistisch Inzicht)</h2>
+        <p>
+          Het Monty Hall-probleem is een beroemd waarschijnlijkheidspuzzel. Stel
+          je voor:
+        </p>
+        <ul class="mb-6">
+          <li>
+            Er zijn drie gesloten deuren. Achter één deur zit een auto (de
+            prijs!), achter de andere twee geiten.
+          </li>
+          <li>Jij kiest een deur (maar opent hem niet).</li>
+          <li>
+            De quizmaster (Monty Hall), die weet waar de auto staat, opent één
+            van de andere twee deuren waarachter een geit staat.
+          </li>
+          <li>
+            Nu krijg je de keuze: blijf je bij je oorspronkelijke deur, of
+            wissel je naar de andere gesloten deur?
+          </li>
+        </ul>
+        <p class="font-semibold text-gray-700">
+          Wat is de beste strategie om de auto te winnen? Blijven of wisselen?
+        </p>
+
+        <h4 class="mt-6">De Monty Hall Simulator</h4>
+        <p>
+          Gebruik de simulator hieronder om het experiment vele malen uit te
+          voeren. Houd bij hoe vaak je wint als je blijft en hoe vaak je wint
+          als je wisselt.
+        </p>
+
+        <div
+          id="monty-hall-simulator"
+          class="mt-6 p-6 bg-gray-50 rounded-lg shadow-inner"
+        >
+          <div
+            class="flex justify-around items-center mb-8 space-x-2 sm:space-x-4"
+            id="doors-container"
+          >
+            <div class="monty-hall-door" data-door="1">1</div>
+            <div class="monty-hall-door" data-door="2">2</div>
+            <div class="monty-hall-door" data-door="3">3</div>
+          </div>
+
+          <div
+            id="game-message"
+            class="text-center text-lg font-medium text-gray-700 mb-6 h-12"
+          >
+            Kies een deur.
+          </div>
+
+          <div class="text-center mb-8 space-x-4">
+            <button
+              id="stay-button"
+              class="button opacity-50 cursor-not-allowed"
+              disabled
+            >
+              Blijf bij Keuze
+            </button>
+            <button
+              id="switch-button"
+              class="button opacity-50 cursor-not-allowed"
+              disabled
+            >
+              Wissel van Deur
+            </button>
+          </div>
+          <button id="reset-game-button" class="button-secondary mx-auto block">
+            Nieuw Spel / Reset
+          </button>
+
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 pt-6 border-t border-gray-300"
+          >
+            <div class="text-center p-3 bg-white rounded shadow">
+              <p class="text-sm text-gray-500">Spellen Gespeeld</p>
+              <p id="games-played" class="text-2xl font-bold text-[#005A8D]">
+                0
+              </p>
+            </div>
+            <div class="text-center p-3 bg-white rounded shadow">
+              <p class="text-sm text-gray-500">Gewonnen door te Blijven</p>
+              <p id="wins-stay" class="text-2xl font-bold text-green-600">
+                0 (0%)
+              </p>
+            </div>
+            <div class="text-center p-3 bg-white rounded shadow">
+              <p class="text-sm text-gray-500">Gewonnen door te Wisselen</p>
+              <p id="wins-switch" class="text-2xl font-bold text-green-600">
+                0 (0%)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          id="statistical-explanation"
+          class="mt-6 p-4 bg-[#D4F6FF] bg-opacity-50 rounded-md hidden"
+        >
+          <h4 class="!mt-0 !mb-2 text-[#005A8D]">
+            Uitleg & Inzicht (Statistisch)
+          </h4>
+          <p class="text-sm text-gray-700">
+            Contra-intuïtief misschien, maar
+            <strong>wisselen van deur verdubbelt je winstkans!</strong>
+          </p>
+          <ul class="text-sm list-disc list-inside text-gray-700">
+            <li>
+              Bij je eerste keuze heb je 1/3 kans op de auto. Dit betekent dat
+              er 2/3 kans is dat de auto achter een van de andere twee deuren
+              zit.
+            </li>
+            <li>
+              Als Monty een deur opent waar een geit achter zit, concentreert
+              die 2/3 kans zich op de enige overgebleven gesloten deur waar je
+              *niet* voor koos.
+            </li>
+            <li>
+              Door te wisselen, claim je die 2/3 kans. Als je blijft, houd je je
+              oorspronkelijke 1/3 kans.
+            </li>
+          </ul>
+          <p class="text-sm text-gray-700 mt-2"><strong>Kenmerken:</strong></p>
+          <ul class="text-sm list-disc list-inside text-gray-700">
+            <li>
+              <strong>Stochastisch (Kans-gebaseerd):</strong> De uitkomst van
+              een enkel spel is onzeker, maar over vele spellen worden
+              duidelijke waarschijnlijkheidspatronen zichtbaar.
+            </li>
+            <li>
+              <strong>Leren uit Data/Experiment:</strong> Door de simulator vaak
+              te draaien (data genereren), "ontdek" je de optimale strategie.
+            </li>
+            <li>
+              <strong>Statistische AI affiniteit:</strong> Dit soort problemen,
+              waar patronen uit onzekere data worden gehaald en beslissingen
+              onder onzekerheid worden genomen, sluit aan bij de principes van
+              statistische AI (Machine Learning). De simulator zelf is een vorm
+              van "agent-based modeling".
+            </li>
+          </ul>
+        </div>
+        <button
+          onclick="document.getElementById('statistical-explanation').classList.toggle('hidden'); this.textContent = document.getElementById('statistical-explanation').classList.contains('hidden') ? 'Toon Uitleg Oefening 2' : 'Verberg Uitleg Oefening 2';"
+          class="button-secondary mt-4"
+        >
+          Toon Uitleg Oefening 2
+        </button>
+      </section>
+
+      <!-- Conclusie -->
+      <section
+        class="content-section bg-[#C6E7FF] bg-opacity-70 border-l-8 border-[#005A8D]"
+      >
+        <h2 class="!border-[#005A8D] !text-[#005A8D]">
+          Reflectie: Symbolisch vs. Statistisch
+        </h2>
+        <p class="text-gray-700">
+          De twee oefeningen illustreren fundamentele verschillen:
+        </p>
+        <div class="grid md:grid-cols-2 gap-6 mt-4">
+          <div class="bg-white p-4 rounded-lg shadow">
+            <h4 class="text-gray-700">Oefening 1 (Vierkantswortel)</h4>
+            <ul class="text-sm">
+              <li>
+                <strong>Aanpak:</strong> Logisch, stap-voor-stap,
+                regelgebaseerd.
+              </li>
+              <li><strong>Output:</strong> Deterministisch, voorspelbaar.</li>
+              <li>
+                <strong>AI-Type:</strong> Representatief voor
+                <strong>Symbolische AI</strong>. De "intelligentie" zit in de
+                expliciet gecodeerde logica.
+              </li>
+            </ul>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow">
+            <h4 class="text-gray-700">Oefening 2 (Monty Hall)</h4>
+            <ul class="text-sm">
+              <li>
+                <strong>Aanpak:</strong> Kansrekening, experimenteel,
+                patroonherkenning uit data (simulaties).
+              </li>
+              <li>
+                <strong>Output:</strong> Stochastisch (willekeurig voor één
+                spel, maar met duidelijke trends over tijd).
+              </li>
+              <li>
+                <strong>AI-Type:</strong> Representatief voor
+                <strong>Statistische AI</strong>. De "intelligentie" ontstaat
+                door het analyseren van data en het ontdekken van
+                waarschijnlijkheden.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-6 text-gray-700 font-medium">
+          Moderne AI-systemen combineren vaak elementen van beide paradigma's
+          (Neuro-Symbolische AI) om te profiteren van de sterktes van zowel
+          logisch redeneren als leren uit data. Dit stelt hen in staat om
+          complexe problemen in de echte wereld effectiever aan te pakken.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <p>
+          © 2024 Mastermodule Excellentie door Design. Alle rechten
+          voorbehouden.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const doorsContainer = document.getElementById("doors-container");
+        const doors = doorsContainer.querySelectorAll(".monty-hall-door");
+        const gameMessage = document.getElementById("game-message");
+        const stayButton = document.getElementById("stay-button");
+        const switchButton = document.getElementById("switch-button");
+        const resetGameButton = document.getElementById("reset-game-button");
+
+        const gamesPlayedEl = document.getElementById("games-played");
+        const winsStayEl = document.getElementById("wins-stay");
+        const winsSwitchEl = document.getElementById("wins-switch");
+
+        let carDoor;
+        let playerChoice;
+        let revealedGoatDoor;
+        let gameState = "initialChoice"; // initialChoice, montyReveals, finalDecision
+
+        let stats = {
+          played: 0,
+          stayWins: 0,
+          switchWins: 0,
+          stayAttempts: 0,
+          switchAttempts: 0,
+        };
+
+        function initializeGame() {
+          gameState = "initialChoice";
+          carDoor = Math.floor(Math.random() * 3) + 1;
+          playerChoice = null;
+          revealedGoatDoor = null;
+
+          doors.forEach((door) => {
+            door.classList.remove("selected", "opened");
+            door.innerHTML = door.dataset.door; // Reset to number
+            door.onclick = handleDoorClick;
+          });
+
+          gameMessage.textContent = "Kies een deur.";
+          stayButton.classList.add("opacity-50", "cursor-not-allowed");
+          stayButton.disabled = true;
+          switchButton.classList.add("opacity-50", "cursor-not-allowed");
+          switchButton.disabled = true;
+          resetGameButton.textContent = "Nieuw Spel / Reset";
+        }
+
+        function handleDoorClick(event) {
+          if (gameState !== "initialChoice") return;
+
+          playerChoice = parseInt(event.target.dataset.door);
+          event.target.classList.add("selected");
+          doors.forEach((door) => (door.onclick = null)); // Disable further door clicks
+
+          gameState = "montyReveals";
+          gameMessage.textContent = `Je koos deur ${playerChoice}. Monty opent nu een deur...`;
+
+          // Monty reveals a goat
+          setTimeout(() => {
+            let optionsToReveal = [1, 2, 3].filter(
+              (d) => d !== playerChoice && d !== carDoor
+            );
+            revealedGoatDoor =
+              optionsToReveal[
+                Math.floor(Math.random() * optionsToReveal.length)
+              ];
+
+            const revealedDoorEl = doorsContainer.querySelector(
+              `[data-door="${revealedGoatDoor}"]`
+            );
+            revealedDoorEl.classList.add("opened");
+            revealedDoorEl.innerHTML = "🐐";
+
+            gameState = "finalDecision";
+            gameMessage.textContent = `Monty opende deur ${revealedGoatDoor}. Blijf je bij deur ${playerChoice} of wissel je?`;
+
+            stayButton.classList.remove("opacity-50", "cursor-not-allowed");
+            stayButton.disabled = false;
+            switchButton.classList.remove("opacity-50", "cursor-not-allowed");
+            switchButton.disabled = false;
+          }, 1500);
+        }
+
+        function makeFinalDecision(strategy) {
+          // 'stay' or 'switch'
+          if (gameState !== "finalDecision") return;
+          gameState = "gameOver";
+
+          let finalChoice = playerChoice;
+          if (strategy === "switch") {
+            stats.switchAttempts++;
+            finalChoice = [1, 2, 3].find(
+              (d) => d !== playerChoice && d !== revealedGoatDoor
+            );
+          } else {
+            stats.stayAttempts++;
+          }
+
+          const hasWon = finalChoice === carDoor;
+          stats.played++;
+
+          if (strategy === "stay" && hasWon) stats.stayWins++;
+          if (strategy === "switch" && hasWon) stats.switchWins++;
+
+          // Reveal all doors
+          doors.forEach((door) => {
+            door.classList.add("opened");
+            const doorNum = parseInt(door.dataset.door);
+            if (doorNum === carDoor) {
+              door.innerHTML = "🚗";
+              door.classList.add("border-green-500", "ring-green-500");
+            } else {
+              door.innerHTML = "🐐";
+            }
+            if (doorNum === finalChoice) {
+              door.classList.add("selected"); // Highlight final choice
+            }
+          });
+
+          if (hasWon) {
+            gameMessage.textContent = `Gefeliciteerd! Je koos deur ${finalChoice} en wint de auto! (${
+              strategy === "stay" ? "Je bleef." : "Je wisselde."
+            })`;
+          } else {
+            gameMessage.textContent = `Helaas! Je koos deur ${finalChoice}. De auto was achter deur ${carDoor}. (${
+              strategy === "stay" ? "Je bleef." : "Je wisselde."
+            })`;
+          }
+
+          updateStatsDisplay();
+          stayButton.classList.add("opacity-50", "cursor-not-allowed");
+          stayButton.disabled = true;
+          switchButton.classList.add("opacity-50", "cursor-not-allowed");
+          switchButton.disabled = true;
+          resetGameButton.textContent = "Speel Opnieuw";
+        }
+
+        function updateStatsDisplay() {
+          gamesPlayedEl.textContent = stats.played;
+          const stayWinRate =
+            stats.stayAttempts > 0
+              ? ((stats.stayWins / stats.stayAttempts) * 100).toFixed(0)
+              : 0;
+          winsStayEl.textContent = `${stats.stayWins} (${stayWinRate}%)`;
+          const switchWinRate =
+            stats.switchAttempts > 0
+              ? ((stats.switchWins / stats.switchAttempts) * 100).toFixed(0)
+              : 0;
+          winsSwitchEl.textContent = `${stats.switchWins} (${switchWinRate}%)`;
+        }
+
+        stayButton.addEventListener("click", () => makeFinalDecision("stay"));
+        switchButton.addEventListener("click", () =>
+          makeFinalDecision("switch")
+        );
+        resetGameButton.addEventListener("click", initializeGame);
+
+        initializeGame(); // Start the first game
+      });
+    </script>
+  </body>
+</html>
