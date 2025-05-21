@@ -31,6 +31,13 @@
       .content-section h4 {
         @apply text-lg font-semibold text-gray-600 mt-4 mb-2;
       }
+      .content-section h5 {
+        /* Toegevoegd voor consistentie indien nodig */
+        @apply text-base font-semibold text-gray-700 mt-4 mb-2; /* Of md, sm afhankelijk van hiërarchie */
+      }
+      .content-section h6 {
+        @apply text-sm font-semibold mb-1 text-gray-700;
+      }
       .content-section p,
       .content-section ul,
       .content-section ol {
@@ -55,10 +62,6 @@
       }
       .time-block {
         @apply bg-[#D4F6FF] bg-opacity-50 p-4 rounded-md mb-6;
-      }
-      .time-block-title {
-        /* This class was in Deel 0 example, but h4 is used here for sub-activities */
-        @apply font-bold text-gray-700;
       }
       .back-link {
         @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
@@ -144,7 +147,8 @@
             'AI-replaced professional'.
           </p>
 
-          <h5 class="text-md font-semibold text-gray-700 mt-4 mb-2">
+          <h5 class="text-base font-semibold text-gray-700 mt-4 mb-2">
+            <!-- text-base gebruikt voor h5 hier -->
             De Drie Pijlers van AI
           </h5>
           <div class="grid sm:grid-cols-3 gap-4 mb-6">
@@ -178,16 +182,27 @@
               </p>
             </div>
           </div>
-          <div class="text-center sm:text-left">
+          <div class="text-center sm:text-left mb-6">
+            <!-- mb-6 toegevoegd voor ruimte -->
             <a
               href="programma-deel1-infographic.html"
               class="inline-block bg-[#FFDDAE] text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-opacity-80 transition duration-300 shadow hover:shadow-md text-sm"
             >
-              Bekijk de volledige AI Paradigma's Infographic »
+              Bekijk de AI Paradigma's Infographic (visuele verkenning) »
             </a>
           </div>
 
-          <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">
+          <div class="mt-6 text-center sm:text-left">
+            <a
+              href="programma-deel1-oefeningen.html"
+              class="inline-block bg-[#005A8D] text-white font-semibold py-2 px-5 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105 text-sm"
+            >
+              Naar Oefeningen »
+            </a>
+          </div>
+
+          <h4 class="text-lg font-semibold text-gray-700 mt-8 mb-3">
+            <!-- mt-8 ipv mt-6 voor meer ruimte -->
             Activiteit (10 min)
           </h4>
           <p>
@@ -212,7 +227,16 @@
             De rol van "Data Science Landscape" en hoe AI-tools de traditionele
             stappen versnellen en verdiepen.
           </p>
-
+          <div class="my-6 flex justify-center">
+            <img
+              id="kahnemanImage"
+              src="images/kahneman.png"
+              alt="Systeem 1 en Systeem 2 denken -
+            Kahneman"
+              class="rounded-lg shadow-lg max-w-md w-full object-contain border-2 border-gray-200 cursor-pointer transition-all duration-300 ease-in-out"
+              style="max-height: 400px"
+            />
+          </div>
           <h4 class="mt-4">Casusbespreking (15 min)</h4>
           <p>
             Hoe AI excellentie creëert in specifieke sectoren (bijv.
@@ -266,5 +290,30 @@
         </p>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const kahnemanImage = document.getElementById("kahnemanImage");
+        let isEnlarged = false; // Houdt de huidige staat bij
+
+        if (kahnemanImage) {
+          kahnemanImage.addEventListener("click", function () {
+            if (isEnlarged) {
+              // Maak kleiner
+              this.classList.remove("max-w-5xl"); // Of een andere 'grote' class die je kiest
+              this.classList.add("max-w-md");
+              this.style.maxHeight = "400px"; // Herstel de oorspronkelijke max-height
+              isEnlarged = false;
+            } else {
+              // Maak groter
+              this.classList.remove("max-w-md");
+              this.classList.add("max-w-5xl"); // Grotere maximale breedte
+              this.style.maxHeight = "none"; // Verwijder de hoogtebeperking voor de vergrote staat
+              isEnlarged = true;
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>

@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
       rel="stylesheet"
     />
+    <!-- Chart.js wordt hier geladen, essentieel voor de grafieken -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style type="text/tailwindcss">
       @layer base {
         html {
@@ -18,16 +20,23 @@
         }
       }
       .content-section {
-        @apply mb-12 p-6 bg-white rounded-lg shadow-xl; /* Extra shadow voor "amazing" */
+        @apply mb-12 p-6 bg-white rounded-lg shadow-xl;
       }
       .content-section h2 {
-        @apply text-3xl font-bold text-gray-800 mb-6 pb-3 border-b-4 border-[#FFDDAE]; /* Dikkere border voor accent */
+        @apply text-3xl font-bold text-gray-800 mb-6 pb-3 border-b-4 border-[#FFDDAE];
       }
       .content-section h3 {
         @apply text-2xl font-semibold text-gray-700 mt-8 mb-4;
       }
       .content-section h4 {
         @apply text-xl font-medium text-gray-700 mt-6 mb-3;
+      }
+      .content-section h5 {
+        @apply text-lg font-semibold text-gray-700 mb-4;
+      }
+      .content-section h6 {
+        /* HIER DE CORRECTIE: text-md vervangen door text-base (of text-sm/text-lg naar wens) */
+        @apply text-base font-medium text-center mb-2 text-gray-700;
       }
       .content-section p,
       .content-section ul {
@@ -58,7 +67,12 @@
         @apply bg-white cursor-default;
       }
       .monty-hall-door .prize {
+        /* Als je een prize class zou toevoegen in de deur span */
         @apply text-3xl sm:text-5xl;
+      }
+      .chart-canvas-container {
+        /* Container voor de simulatie charts */
+        @apply relative h-48 sm:h-56; /* Hoogte van de grafiek aanpassen */
       }
 
       /* Scrollbar styling */
@@ -222,12 +236,8 @@
           Wat is de beste strategie om de auto te winnen? Blijven of wisselen?
         </p>
 
-        <h4 class="mt-6">De Monty Hall Simulator</h4>
-        <p>
-          Gebruik de simulator hieronder om het experiment vele malen uit te
-          voeren. Houd bij hoe vaak je wint als je blijft en hoe vaak je wint
-          als je wisselt.
-        </p>
+        <h4 class="mt-6">De Monty Hall Simulator (Interactief)</h4>
+        <p>Speel zelf een paar rondes. Klik op een deur om te kiezen.</p>
 
         <div
           id="monty-hall-simulator"
@@ -292,6 +302,77 @@
             </div>
           </div>
         </div>
+
+        <h4 class="mt-12 mb-6 border-t pt-8">
+          Automatische Simulatie (N keer spelen)
+        </h4>
+        <p class="mb-4">
+          Laat de computer het spel vele malen spelen om de statistieken nog
+          duidelijker te zien. Voer het aantal simulaties in en kijk wat er
+          gebeurt!
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row items-center gap-4 mb-6 p-4 bg-gray-100 rounded-lg"
+        >
+          <label for="num-simulations" class="font-medium text-gray-700"
+            >Aantal simulaties:</label
+          >
+          <input
+            type="number"
+            id="num-simulations"
+            value="1000"
+            min="10"
+            max="100000"
+            class="p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#005A8D] focus:border-[#005A8D] w-full sm:w-auto"
+          />
+          <button id="run-simulation-button" class="button flex-shrink-0">
+            Start Automatische Simulatie
+          </button>
+        </div>
+
+        <div id="simulation-results-container" class="mt-6 hidden">
+          <h5 class="text-lg font-semibold text-gray-700 mb-4">
+            Resultaten Automatische Simulatie:
+          </h5>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h6>Strategie: Altijd Blijven</h6>
+              <div
+                class="bg-white p-4 rounded-lg shadow chart-canvas-container"
+              >
+                <canvas id="stay-strategy-chart"></canvas>
+              </div>
+              <p class="text-xs text-center mt-2 text-gray-500">
+                Gewonnen: <span id="sim-stay-wins" class="font-bold">0</span>,
+                Verloren:
+                <span id="sim-stay-losses" class="font-bold">0</span> (<span
+                  id="sim-stay-winrate"
+                  class="font-bold"
+                  >0</span
+                >%)
+              </p>
+            </div>
+            <div>
+              <h6>Strategie: Altijd Wisselen</h6>
+              <div
+                class="bg-white p-4 rounded-lg shadow chart-canvas-container"
+              >
+                <canvas id="switch-strategy-chart"></canvas>
+              </div>
+              <p class="text-xs text-center mt-2 text-gray-500">
+                Gewonnen: <span id="sim-switch-wins" class="font-bold">0</span>,
+                Verloren:
+                <span id="sim-switch-losses" class="font-bold">0</span> (<span
+                  id="sim-switch-winrate"
+                  class="font-bold"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div
           id="statistical-explanation"
           class="mt-6 p-4 bg-[#D4F6FF] bg-opacity-50 rounded-md hidden"
@@ -341,7 +422,7 @@
         </div>
         <button
           onclick="document.getElementById('statistical-explanation').classList.toggle('hidden'); this.textContent = document.getElementById('statistical-explanation').classList.contains('hidden') ? 'Toon Uitleg Oefening 2' : 'Verberg Uitleg Oefening 2';"
-          class="button-secondary mt-4"
+          class="button-secondary mt-8"
         >
           Toon Uitleg Oefening 2
         </button>
@@ -414,6 +495,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Interactieve Monty Hall Simulator Elementen
         const doorsContainer = document.getElementById("doors-container");
         const doors = doorsContainer.querySelectorAll(".monty-hall-door");
         const gameMessage = document.getElementById("game-message");
@@ -438,6 +520,27 @@
           switchAttempts: 0,
         };
 
+        // Automatische Simulatie Elementen
+        const numSimulationsInput = document.getElementById("num-simulations");
+        const runSimulationButton = document.getElementById(
+          "run-simulation-button"
+        );
+        const simulationResultsContainer = document.getElementById(
+          "simulation-results-container"
+        );
+
+        const simStayWinsEl = document.getElementById("sim-stay-wins");
+        const simStayLossesEl = document.getElementById("sim-stay-losses");
+        const simStayWinrateEl = document.getElementById("sim-stay-winrate");
+
+        const simSwitchWinsEl = document.getElementById("sim-switch-wins");
+        const simSwitchLossesEl = document.getElementById("sim-switch-losses");
+        const simSwitchWinrateEl =
+          document.getElementById("sim-switch-winrate");
+
+        let stayStrategyChart = null;
+        let switchStrategyChart = null;
+
         function initializeGame() {
           gameState = "initialChoice";
           carDoor = Math.floor(Math.random() * 3) + 1;
@@ -445,8 +548,13 @@
           revealedGoatDoor = null;
 
           doors.forEach((door) => {
-            door.classList.remove("selected", "opened");
-            door.innerHTML = door.dataset.door; // Reset to number
+            door.classList.remove(
+              "selected",
+              "opened",
+              "border-green-500",
+              "ring-green-500"
+            );
+            door.innerHTML = door.dataset.door;
             door.onclick = handleDoorClick;
           });
 
@@ -459,20 +567,31 @@
         }
 
         function handleDoorClick(event) {
-          if (gameState !== "initialChoice") return;
+          if (
+            gameState !== "initialChoice" ||
+            !event.target.classList.contains("monty-hall-door")
+          )
+            return;
 
           playerChoice = parseInt(event.target.dataset.door);
+          // Verwijder 'selected' van alle deuren en voeg toe aan de geklikte deur
+          doors.forEach((d) => d.classList.remove("selected"));
           event.target.classList.add("selected");
-          doors.forEach((door) => (door.onclick = null)); // Disable further door clicks
+
+          doors.forEach((door) => (door.onclick = null));
 
           gameState = "montyReveals";
           gameMessage.textContent = `Je koos deur ${playerChoice}. Monty opent nu een deur...`;
 
-          // Monty reveals a goat
           setTimeout(() => {
             let optionsToReveal = [1, 2, 3].filter(
               (d) => d !== playerChoice && d !== carDoor
             );
+            if (optionsToReveal.length === 0) {
+              // Zeldzaam geval als speler auto kiest en er maar 1 geit is (niet mogelijk met 3 deuren setup)
+              // Fallback, moet niet gebeuren met 3 deuren
+              optionsToReveal = [1, 2, 3].filter((d) => d !== playerChoice);
+            }
             revealedGoatDoor =
               optionsToReveal[
                 Math.floor(Math.random() * optionsToReveal.length)
@@ -481,8 +600,10 @@
             const revealedDoorEl = doorsContainer.querySelector(
               `[data-door="${revealedGoatDoor}"]`
             );
-            revealedDoorEl.classList.add("opened");
-            revealedDoorEl.innerHTML = "🐐";
+            if (revealedDoorEl) {
+              revealedDoorEl.classList.add("opened");
+              revealedDoorEl.innerHTML = "🐐";
+            }
 
             gameState = "finalDecision";
             gameMessage.textContent = `Monty opende deur ${revealedGoatDoor}. Blijf je bij deur ${playerChoice} of wissel je?`;
@@ -495,7 +616,6 @@
         }
 
         function makeFinalDecision(strategy) {
-          // 'stay' or 'switch'
           if (gameState !== "finalDecision") return;
           gameState = "gameOver";
 
@@ -515,18 +635,24 @@
           if (strategy === "stay" && hasWon) stats.stayWins++;
           if (strategy === "switch" && hasWon) stats.switchWins++;
 
-          // Reveal all doors
           doors.forEach((door) => {
             door.classList.add("opened");
             const doorNum = parseInt(door.dataset.door);
             if (doorNum === carDoor) {
               door.innerHTML = "🚗";
-              door.classList.add("border-green-500", "ring-green-500");
+              door.classList.add(
+                "border-green-500",
+                "ring-4",
+                "ring-green-500",
+                "ring-opacity-75"
+              ); // Extra highlight auto
             } else {
               door.innerHTML = "🐐";
             }
+            // Verwijder 'selected' van alle deuren en voeg toe aan de uiteindelijke keuze
+            door.classList.remove("selected");
             if (doorNum === finalChoice) {
-              door.classList.add("selected"); // Highlight final choice
+              door.classList.add("selected");
             }
           });
 
@@ -568,7 +694,182 @@
         );
         resetGameButton.addEventListener("click", initializeGame);
 
-        initializeGame(); // Start the first game
+        // Automatische Simulatie Functies
+        function runSingleMontySimulation(strategy) {
+          const localCarDoor = Math.floor(Math.random() * 3) + 1;
+          const localPlayerInitialChoice = Math.floor(Math.random() * 3) + 1;
+
+          let localRevealedGoat;
+          let optionsToRevealMonty = [1, 2, 3].filter(
+            (d) => d !== localPlayerInitialChoice && d !== localCarDoor
+          );
+
+          // Als speler de auto kiest, kan Monty een van de twee geiten openen
+          // Als speler een geit kiest, moet Monty de *andere* geit openen
+          if (optionsToRevealMonty.length === 0) {
+            // Dit gebeurt als de speler de auto koos
+            let allGoats = [1, 2, 3].filter((d) => d !== localCarDoor);
+            localRevealedGoat = allGoats.find(
+              (d) => d !== localPlayerInitialChoice
+            ); // Monty kan niet de gekozen deur openen
+          } else {
+            localRevealedGoat =
+              optionsToRevealMonty[
+                Math.floor(Math.random() * optionsToRevealMonty.length)
+              ];
+          }
+
+          let finalChoice;
+          if (strategy === "stay") {
+            finalChoice = localPlayerInitialChoice;
+          } else {
+            finalChoice = [1, 2, 3].find(
+              (d) => d !== localPlayerInitialChoice && d !== localRevealedGoat
+            );
+          }
+          return finalChoice === localCarDoor;
+        }
+
+        function startAutomaticSimulation() {
+          const numSims = parseInt(numSimulationsInput.value);
+          if (isNaN(numSims) || numSims < 10 || numSims > 100000) {
+            alert(
+              "Voer een geldig aantal simulaties in (tussen 10 en 100.000)."
+            );
+            return;
+          }
+
+          runSimulationButton.disabled = true;
+          runSimulationButton.classList.add("opacity-50", "cursor-not-allowed");
+          runSimulationButton.textContent = "Simuleren...";
+
+          setTimeout(() => {
+            let simStayTotalWins = 0;
+            let simSwitchTotalWins = 0;
+
+            for (let i = 0; i < numSims; i++) {
+              if (runSingleMontySimulation("stay")) {
+                simStayTotalWins++;
+              }
+              if (runSingleMontySimulation("switch")) {
+                simSwitchTotalWins++;
+              }
+            }
+
+            const simStayTotalLosses = numSims - simStayTotalWins;
+            const simSwitchTotalLosses = numSims - simSwitchTotalWins;
+
+            simStayWinsEl.textContent = simStayTotalWins;
+            simStayLossesEl.textContent = simStayTotalLosses;
+            simStayWinrateEl.textContent = (
+              (simStayTotalWins / numSims) *
+              100
+            ).toFixed(1);
+
+            simSwitchWinsEl.textContent = simSwitchTotalWins;
+            simSwitchLossesEl.textContent = simSwitchTotalLosses;
+            simSwitchWinrateEl.textContent = (
+              (simSwitchTotalWins / numSims) *
+              100
+            ).toFixed(1);
+
+            simulationResultsContainer.classList.remove("hidden");
+
+            renderSimulationChart(
+              "stay-strategy-chart",
+              "Strategie: Blijven",
+              simStayTotalWins,
+              simStayTotalLosses,
+              stayStrategyChart,
+              (newChart) => (stayStrategyChart = newChart)
+            );
+            renderSimulationChart(
+              "switch-strategy-chart",
+              "Strategie: Wisselen",
+              simSwitchTotalWins,
+              simSwitchTotalLosses,
+              switchStrategyChart,
+              (newChart) => (switchStrategyChart = newChart)
+            );
+
+            runSimulationButton.disabled = false;
+            runSimulationButton.classList.remove(
+              "opacity-50",
+              "cursor-not-allowed"
+            );
+            runSimulationButton.textContent = "Start Automatische Simulatie";
+          }, 100);
+        }
+
+        function renderSimulationChart(
+          canvasId,
+          label,
+          wins,
+          losses,
+          existingChartInstance,
+          setChartInstanceCallback
+        ) {
+          const ctx = document.getElementById(canvasId);
+          if (!ctx) {
+            console.error(`Canvas with ID ${canvasId} not found.`);
+            return;
+          }
+
+          if (existingChartInstance) {
+            existingChartInstance.destroy();
+          }
+
+          const newChart = new Chart(ctx.getContext("2d"), {
+            type: "bar",
+            data: {
+              labels: ["Gewonnen", "Verloren"],
+              datasets: [
+                {
+                  label: label, // Dit label wordt niet standaard getoond in de grafiek, maar is goed voor context
+                  data: [wins, losses],
+                  backgroundColor: [
+                    "rgba(75, 192, 192, 0.7)", // Teal/Groen voor winst
+                    "rgba(255, 99, 132, 0.7)", // Rood voor verlies
+                  ],
+                  borderColor: ["rgb(75, 192, 192)", "rgb(255, 99, 132)"],
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              indexAxis: "y",
+              scales: {
+                x: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Aantal Keer",
+                    font: { size: 10 },
+                  },
+                  ticks: { font: { size: 10 } },
+                },
+                y: {
+                  ticks: { font: { size: 12, weight: "bold" } },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: false,
+                },
+                title: {
+                  display: false,
+                },
+              },
+            },
+          });
+          setChartInstanceCallback(newChart);
+        }
+
+        runSimulationButton.addEventListener("click", startAutomaticSimulation);
+
+        initializeGame(); // Start de eerste interactieve game
       });
     </script>
   </body>
