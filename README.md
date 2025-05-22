@@ -2,4 +2,4 @@
 
 ### tinyurl.com/managexl
 
-[](images/managexl-1200.png)
+[](https://github.com/businessdatasolutions/managing-excellence/blob/main/images/managexl-1200.png?raw=true)
