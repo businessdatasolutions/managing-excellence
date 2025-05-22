@@ -32,8 +32,8 @@
         @apply text-lg font-semibold text-gray-600 mt-4 mb-2;
       }
       .content-section h5 {
-        /* Added for deeper nesting if needed */
-        @apply text-base font-semibold text-gray-600 mt-3 mb-1;
+        /* Voor deelnemer-gerichte nog kleinere subkoppen */
+        @apply text-base font-semibold text-gray-700 mt-3 mb-1;
       }
       .content-section p,
       .content-section ul,
@@ -64,7 +64,6 @@
         @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
       }
 
-      /* WebKit-specifieke scrollbar styling */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -128,74 +127,65 @@
       </p>
 
       <section class="content-section">
-        <h2>Agenda Deel 2</h2>
+        <h2>Wat je in deze sessie zult ontdekken en doen</h2>
+        <p>
+          Na de lunchpauze duiken we in Deel 2 dieper in de praktische
+          toepassingen van AI. We bouwen voort op de AI-concepten en de focus op
+          excellente besluitvorming uit Deel 1. In deze sessie ontdek je hoe AI
+          concreet kan worden ingezet om processen te optimaliseren en
+          risicomanagement te transformeren van reactief naar proactief en zelfs
+          voorspellend.
+        </p>
 
-        <h3>
-          13:45 – 13:55: Introductie Deel 2 & Verbinding met Eerdere Inzichten
-          (10 min)
-        </h3>
         <div class="time-block">
-          <p><strong>Facilitator:</strong></p>
-          <ul class="list-disc">
-            <li>
-              Korte recapitulatie van Deel 1: hoe AI-concepten (turbokrachten)
-              en AI-ondersteunde besluitvorming de basis leggen voor het streven
-              naar excellentie.
-            </li>
-            <li>
-              Introductie van Deel 2: focus op de concrete toepassing van AI in
-              het optimaliseren van processen en het verbeteren van
-              risicomanagement.
-            </li>
-            <li>
-              Doel: Laten zien hoe AI helpt om van reactief naar proactief en
-              zelfs predictief te gaan in kwaliteits- en risicomanagement.
-            </li>
-            <li>
-              Overzicht van de twee hoofdblokken: AI in Procesoptimalisatie en
-              AI in Risicoverbetering.
-            </li>
-          </ul>
+          <h3 class="!mt-0">
+            13:45 – 13:55: Start Deel 2: Verbinding en Vooruitblik (10 min)
+          </h3>
+          <p>
+            We beginnen met een korte samenvatting van Deel 1, waarbij we de
+            link leggen tussen AI-concepten en AI-ondersteunde besluitvorming
+            als basis voor excellentie. Daarna introduceren we de focus van Deel
+            2: de concrete toepassing van AI in procesoptimalisatie en
+            risicoverbetering.
+          </p>
         </div>
 
-        <h3>
-          13:55 – 14:40: AI in Procesoptimalisatie: Van Inzicht naar Actie (45
-          min)
-        </h3>
         <div class="time-block">
-          <h4>13:55 – 14:10: Uitleg & Inspiratie (15 min)</h4>
-          <p><strong>Onderwerpen:</strong></p>
+          <h3>
+            13:55 – 14:40: AI in Procesoptimalisatie: Van Inzicht naar Actie (45
+            min)
+          </h3>
+          <h4>Uitleg & Inspirerende Voorbeelden</h4>
+          <p>Je leert over:</p>
           <ul class="list-disc">
             <li>
               <strong
                 >Van Process Mining naar AI-gedreven Process
                 Augmentation:</strong
               >
-              Hoe AI niet alleen bestaande processen analyseert (Process
-              Mining), maar ook actief helpt verbeteren, automatiseren en zelfs
-              herontwerpen voor excellentie (Process Augmentation).
+              Ontdek hoe AI niet alleen bestaande processen analyseert (Process
+              Mining), maar deze ook actief helpt verbeteren, automatiseren en
+              zelfs herontwerpen om excellentie te bereiken (Process
+              Augmentation).
             </li>
             <li>
-              <strong>Introductie Digital Twins & AI-simulatie:</strong> Het
-              concept van een digitale kopie van een proces of systeem. Hoe
-              AI-simulaties ('wat-als' scenario's) helpen om optimale paden voor
-              kwaliteit, efficiëntie en robuustheid te ontdekken *voordat*
-              veranderingen live gaan. Geef een aansprekend voorbeeld.
+              <strong>Digital Twins & AI-simulatie:</strong> Maak kennis met het
+              concept van een digitale kopie van een proces of systeem. We
+              bespreken hoe AI-simulaties ('wat-als' scenario's) helpen optimale
+              paden voor kwaliteit en efficiëntie te ontdekken vóór
+              implementatie.
             </li>
             <li>
-              <strong>De rol van AI in robotica en autonome systemen:</strong>
-              Kort aanstippen hoe dit in productie- en
-              dienstverleningsomgevingen kan leiden tot hogere consistentie en
-              minder menselijke fouten (relevant voor specifieke sectoren van
-              deelnemers).
+              <strong>AI in Robotica en Autonome Systemen:</strong> Een korte
+              blik op hoe dit in productie- en dienstverleningsomgevingen kan
+              leiden tot hogere consistentie en minder fouten.
             </li>
           </ul>
           <p>
-            <strong>Visueel:</strong> Gebruik schema's om het verschil tussen
-            traditionele optimalisatie en AI-gedreven augmentatie te tonen. Een
-            korte video (1-2 min) van een Digital Twin in actie kan zeer
-            verhelderend zijn.
+            Visuele schema's en mogelijk een korte video van een Digital Twin
+            zullen deze concepten verder verduidelijken.
           </p>
+
           <!-- Link naar Process Mining Simulator -->
           <div class="mt-6 mb-2 pt-4 border-t border-gray-300">
             <div
@@ -207,7 +197,6 @@
                 <div
                   class="text-4xl text-[#005A8D] mb-3 sm:mb-0 sm:mr-5 flex-shrink-0"
                 >
-                  <!-- Icoontje voor process/data analyse -->
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-12 w-12"
@@ -242,130 +231,52 @@
               </div>
             </div>
           </div>
-          <!-- Einde Link sectie -->
 
-          <h4 class="mt-4">
-            14:10 – 14:40: Interactieve Activiteit: "De AI Optimalisatie
-            Werkplaats" (30 min)
-          </h4>
+          <h4>Interactieve Activiteit: "De AI Optimalisatie Werkplaats"</h4>
           <p>
-            <strong>Doel:</strong> Deelnemers laten ervaren hoe AI kan bijdragen
-            aan het identificeren van knelpunten en het ontwerpen van een
-            geoptimaliseerd proces binnen hun eigen context of een herkenbare
-            case.
+            Je gaat in groepen aan de slag! Het doel is om te ervaren hoe AI kan
+            helpen bij het identificeren van knelpunten en het ontwerpen van een
+            geoptimaliseerd proces. Je kunt kiezen om een problematisch proces
+            uit je eigen organisatie te analyseren of een door ons aangereikte
+            case te gebruiken. We brainstormen over de huidige staat en hoe
+            AI-tools zoals Process Mining, simulaties of voorspellende modellen
+            kunnen ingrijpen om verbeteringen te realiseren. Enkele groepen
+            delen hun meest verrassende of veelbelovende AI-interventie.
           </p>
-          <p><strong>Opzet:</strong></p>
-          <ol class="list-decimal">
-            <li>
-              <strong>Groepsvorming (2 min):</strong> Deelnemers in groepen van
-              3-4.
-            </li>
-            <li>
-              <strong>Case Selectie (3 min):</strong>
-              <ul class="list-disc ml-4">
-                <li>
-                  <strong>Optie A:</strong> Elke groep kiest een *bestaand,
-                  problematisch proces* uit hun eigen organisatie (of een
-                  deelproces) dat ze willen optimaliseren.
-                </li>
-                <li>
-                  <strong>Optie B:</strong> Facilitator reikt 2-3 korte,
-                  generieke procescases aan (bijv. "Klachtenafhandeling in een
-                  dienstverlenende organisatie", "Onboarding van nieuwe
-                  medewerkers", "Beheer van leverancierscontracten").
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong>Brainstorm & Huidige Staat (10 min):</strong>
-              <ul class="list-disc ml-4">
-                <li>
-                  Groepen schetsen het gekozen proces globaal (bijv. met
-                  post-its op een A3-vel).
-                </li>
-                <li>
-                  Ze identificeren 2-3 belangrijke knelpunten of gebieden waar
-                  de kwaliteit/efficiëntie achterblijft.
-                </li>
-                <li>
-                  Ze benoemen welke data relevant zou kunnen zijn voor dit
-                  proces.
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong>AI-Interventie Brainstorm (10 min):</strong>
-              <ul class="list-disc ml-4">
-                <li>
-                  "Stel je voor dat je toegang hebt tot geavanceerde AI-tools
-                  (Process Mining, AI-simulatie/Digital Twin, voorspellende
-                  modellen). Hoe zou AI kunnen helpen om:
-                  <ul class="list-disc ml-4">
-                    <li>
-                      Dieper inzicht te krijgen in de *oorzaken* van de
-                      knelpunten?
-                    </li>
-                    <li>
-                      Te voorspellen waar toekomstige problemen kunnen ontstaan?
-                    </li>
-                    <li>
-                      Verschillende oplossingsrichtingen/scenario's te simuleren
-                      en hun impact op kwaliteit/doorlooptijd te vergelijken?
-                    </li>
-                    <li>
-                      Delen van het proces te automatiseren of 'augmenteren'?"
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Groepen noteren 2-3 concrete manieren waarop AI een
-                  'turbokracht' kan zijn voor hun proces.
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong>Korte Plenaire Deling (5 min):</strong> 1-2 groepen delen
-              hun meest verrassende of veelbelovende AI-interventie. Facilitator
-              koppelt terug naar de theorie.
-            </li>
-          </ol>
         </div>
 
-        <h3>
-          14:40 – 15:25: AI in Risicoverbetering: Van Reactief naar Predictief
-          (45 min)
-        </h3>
         <div class="time-block">
-          <h4>14:40 – 14:55: Uitleg & Voorbeelden (15 min)</h4>
-          <p><strong>Onderwerpen:</strong></p>
+          <h3>
+            14:40 – 15:25: AI in Risicoverbetering: Van Reactief naar Predictief
+            (45 min)
+          </h3>
+          <h4>Uitleg & Praktische Voorbeelden</h4>
+          <p>We verkennen:</p>
           <ul class="list-disc">
             <li>
               <strong>Predictive Analytics voor Risicomanagement:</strong> Hoe
               AI-modellen, getraind op historische data, potentiële risico's
-              (operationeel, financieel, compliance, veiligheid) kunnen
-              identificeren en kwantificeren *voordat* ze zich manifesteren.
-              Geef voorbeelden zoals voorspellend onderhoud, fraudedetectie, of
-              het voorspellen van projectrisico's.
+              (operationeel, financieel, etc.) kunnen identificeren en
+              kwantificeren *voordat* ze zich voordoen. Denk aan voorspellend
+              onderhoud of fraudedetectie.
             </li>
             <li>
-              <strong>AI voor Compliance en Auditing:</strong> Het automatiseren
-              van controles, het continu monitoren van transacties/processen op
-              afwijkingen, en het signaleren van non-compliance die de kwaliteit
-              of veiligheid kan beïnvloeden.
+              <strong>AI voor Compliance en Auditing:</strong> De rol van AI in
+              het automatiseren van controles, continue monitoring van processen
+              op afwijkingen, en het signaleren van non-compliance.
             </li>
             <li>
               <strong>De Ethische Imperatief & Risico's van AI zelf:</strong>
-              Essentieel om kort stil te staan bij bias in data/algoritmes,
+              Een cruciale discussie over bias in data en algoritmes,
               transparantie (explainability), accountability, en de noodzaak van
-              'human oversight' om excellentie *en* verantwoordelijkheid te
-              waarborgen.
+              menselijk toezicht.
             </li>
           </ul>
           <p>
-            <strong>Visueel:</strong> Een schema dat de evolutie van
-            risicomanagement (reactief -> preventief -> predictief met AI) laat
-            zien.
+            Een schema zal de evolutie van risicomanagement (reactief →
+            preventief → predictief met AI) visueel ondersteunen.
           </p>
+
           <!-- Link naar Risicomanagement Evolutie Visualisatie -->
           <div class="mt-6 mb-2 pt-4 border-t border-gray-300">
             <div
@@ -377,7 +288,6 @@
                 <div
                   class="text-4xl text-[#005A8D] mb-3 sm:mb-0 sm:mr-5 flex-shrink-0"
                 >
-                  <!-- Icoontje voor evolutie/grafiek/inzicht -->
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-12 w-12"
@@ -412,145 +322,56 @@
               </div>
             </div>
           </div>
-          <!-- Einde Link sectie -->
 
-          <h4 class="mt-4">
-            14:55 – 15:25: Interactieve Activiteit: "AI Risico Radar & Ethisch
-            Kompas" (30 min)
-          </h4>
+          <h4>Interactieve Activiteit: "AI Risico Radar & Ethisch Kompas"</h4>
           <p>
-            <strong>Doel:</strong> Deelnemers laten reflecteren op hoe AI kan
-            worden ingezet voor proactieve risico-identificatie in hun domein,
-            en hen bewust maken van de ethische overwegingen.
+            Tijd voor reflectie en discussie. Eerst individueel of in duo's:
+            denk na over een significant risico in jouw werkveld. Hoe zou AI
+            kunnen helpen dit risico eerder te signaleren of de impact beter te
+            voorspellen? Welke data is hiervoor nodig? Vervolgens gaan we in
+            groepen dieper in op ethische dilemma's rondom AI in
+            risicomanagement aan de hand van prikkelende stellingen. Hoe
+            benutten we de 'turbokracht' van AI en handelen we tegelijkertijd
+            ethisch en verantwoord? We sluiten af met het delen van
+            kerninzichten en het belang van "human-in-the-loop".
           </p>
-          <p><strong>Opzet:</strong></p>
-          <ol class="list-decimal">
-            <li>
-              <strong
-                >Individuele Reflectie / Duo's (10 min): "Mijn Top Risico &
-                AI-Kans"</strong
-              >
-              <ul class="list-disc ml-4">
-                <li>
-                  Vraag deelnemers: "Denk aan een significant risico binnen jouw
-                  werkveld of organisatie waar je momenteel veel aandacht aan
-                  besteedt, of dat vaak tot problemen leidt."
-                </li>
-                <li>
-                  "Hoe zou een AI-toepassing (bijv. een voorspellend model, een
-                  anomalie detectiesysteem) je kunnen helpen dit risico *eerder*
-                  te signaleren of de impact ervan beter te voorspellen?"
-                </li>
-                <li>"Welke data zou hiervoor nodig zijn?"</li>
-                <li>
-                  Deelnemers noteren dit kort voor zichzelf of bespreken in
-                  duo's.
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong
-                >Groepsdiscussie: "Het Ethische Spanningsveld" (15 min)</strong
-              >
-              <ul class="list-disc ml-4">
-                <li>
-                  Deelnemers (in dezelfde groepen als vorige activiteit, of
-                  nieuwe) delen enkele van hun geïdentificeerde risico's en
-                  AI-kansen.
-                </li>
-                <li>
-                  De facilitator introduceert 2-3 korte, prikkelende ethische
-                  dilemma's of stellingen gerelateerd aan AI in
-                  risicomanagement. Bijvoorbeeld:
-                  <ul class="list-disc ml-4">
-                    <li>
-                      "Een AI voorspelt met 90% zekerheid een groot
-                      veiligheidsrisico, maar de aanbevolen actie is zeer
-                      kostbaar en disruptief. Wat doe je?"
-                    </li>
-                    <li>
-                      "Om risico's beter te voorspellen, wil de organisatie
-                      medewerkersdata (geanonimiseerd) gebruiken. Is dit
-                      acceptabel?"
-                    </li>
-                    <li>
-                      "Wie is verantwoordelijk als een AI-systeem een kritiek
-                      risico mist of een foute voorspelling doet met grote
-                      gevolgen?"
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Groepen bespreken één of twee van deze dilemma's in relatie
-                  tot de eerder genoemde AI-kansen. Hoe kunnen ze de
-                  'turbokracht' van AI benutten en tegelijkertijd ethisch en
-                  verantwoord handelen?
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong>Plenaire Wrap-up (5 min):</strong> Enkele kerninzichten of
-              belangrijkste aandachtspunten uit de groepsdiscussies worden
-              gedeeld. Facilitator benadrukt het belang van een
-              "human-in-the-loop" en ethische richtlijnen.
-            </li>
-          </ol>
         </div>
 
-        <h3>
-          15:25 – 15:30: Afronding Deel 2 & Vooruitblik op Solution Design (5
-          min)
-        </h3>
         <div class="time-block">
-          <p><strong>Facilitator:</strong></p>
-          <ul class="list-disc">
-            <li>
-              Vat de kernboodschappen van Deel 2 samen: AI als enabler voor
-              proactieve procesoptimalisatie en predictief risicomanagement.
-            </li>
-            <li>
-              Legt de link naar Deel 3: "We hebben nu de bouwstenen en
-              inspiratie. In Deel 3 gaan jullie zelf aan de slag met het
-              ontwerpen van een concrete 'Solution Design' waarin AI wordt
-              ingezet om excellentie te bereiken in jullie eigen context."
-            </li>
-            <li>
-              Moedig deelnemers aan om de ideeën en discussies uit Deel 2 mee te
-              nemen in hun ontwerpproces.
-            </li>
-          </ul>
+          <h3>
+            15:25 – 15:30: Afronding Deel 2 & Vooruitblik op Deel 3 (5 min)
+          </h3>
+          <p>
+            We vatten de kernboodschappen van Deel 2 samen: AI als krachtige
+            enabler voor proactieve procesoptimalisatie en voorspellend
+            risicomanagement. Daarna kijken we vooruit naar Deel 3, waar je de
+            opgedane kennis en inspiratie gaat gebruiken om zelf een concrete
+            'Solution Design' te ontwerpen voor jouw eigen context.
+          </p>
         </div>
       </section>
 
       <section class="content-section">
-        <h2>Extra Suggesties voor Interactie</h2>
-        <p>(Indien meer variatie gewenst of tijd het toelaat):</p>
+        <h2>Extra Suggesties voor Interactie (Optioneel)</h2>
+        <p>
+          Afhankelijk van de tijd en groepsdynamiek, kunnen we ook kiezen voor
+          alternatieve interactieve werkvormen zoals:
+        </p>
         <ul>
           <li>
-            <strong>"Speed Dating" met AI-toepassingen:</strong> Laat deelnemers
-            in korte rondes (2-3 minuten) ideeën uitwisselen over hoe een
-            specifieke AI-technologie (bijv. NLP voor documentanalyse, computer
-            vision voor kwaliteitsinspectie) in hun werkveld toegepast kan
-            worden.
+            <strong>"Speed Dating" met AI-toepassingen:</strong> Korte, snelle
+            uitwisselingen van ideeën over specifieke AI-technologieën.
           </li>
           <li>
-            <strong>Gastspreker (kort):</strong> Een professional die al
-            ervaring heeft met AI-implementatie in kwaliteits- of
-            risicomanagement kan in 10-15 minuten zeer inspirerend werken.
+            <strong>Gastspreker (kort):</strong> Een inspirerend verhaal van een
+            professional met praktijkervaring in AI-implementatie.
           </li>
           <li>
-            <strong>"Debunk the Hype":</strong> Bespreek enkele veelgehoorde
-            misvattingen of overdreven claims over AI in procesoptimalisatie of
-            risicomanagement en nuanceer deze.
+            <strong>"Debunk the Hype":</strong> Een kritische blik op
+            veelgehoorde claims over AI in procesoptimalisatie of
+            risicomanagement.
           </li>
         </ul>
-        <p class="mt-4">
-          <em
-            >Deze opzet probeert een balans te vinden tussen kennisoverdracht en
-            actieve participatie, gericht op de professionele achtergrond van de
-            deelnemers.</em
-          >
-        </p>
       </section>
 
       <div class="mt-12 text-center">

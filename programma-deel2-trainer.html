@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Trainer: Deel 2 - AI-gedreven Procesoptimalisatie & Risicoverbetering
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          font-family: "Red Hat Text", sans-serif;
+        }
+      }
+      .content-section {
+        @apply mb-8 p-6 bg-white rounded-lg shadow-lg;
+      }
+      .content-section h2 {
+        /* Hoofdtitel van de pagina-sectie, bijv. "Gedetailleerde Agenda..." */
+        @apply text-2xl font-bold text-gray-700 mb-4 pb-2 border-b-2 border-[#D4F6FF];
+      }
+      .content-section h3 {
+        /* Titel van een hoofd-agendapunt, bijv. "13:45 – 13:55: Introductie..." */
+        @apply text-xl font-semibold text-gray-700 mt-6 mb-3;
+      }
+      .content-section h4 {
+        /* Subkop voor deelnemer-tekst, bijv. "Uitleg & Inspiratie" */
+        @apply text-lg font-semibold text-gray-600 mt-4 mb-2;
+      }
+      .content-section h5 {
+        /* Kleinere subkop voor deelnemer-tekst */
+        @apply text-base font-semibold text-gray-600 mt-3 mb-1;
+      }
+      .content-section p,
+      .content-section ul,
+      .content-section ol {
+        @apply text-gray-600 leading-relaxed mb-3;
+      }
+      .content-section ul,
+      .content-section ol {
+        @apply list-inside ml-4;
+      }
+      .content-section ul {
+        @apply list-disc;
+      }
+      .content-section ol {
+        /* Voor genummerde lijsten in deelnemer content */
+        @apply list-decimal;
+      }
+      .content-section ul ul, /* Geneste lijsten deelnemer content */
+      .content-section ol ol {
+        @apply ml-6 mt-1;
+      }
+      .content-section strong {
+        /* Strong in deelnemer content */
+        @apply font-semibold text-gray-700;
+      }
+      .time-block {
+        /* Lichtblauwe achtergrond voor elk agendapunt blok */
+        @apply bg-[#D4F6FF] bg-opacity-50 p-4 rounded-md mb-6;
+      }
+      .back-link {
+        @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
+      }
+      .trainer-note {
+        @apply my-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm rounded-md shadow;
+      }
+      .trainer-note strong,
+      .trainer-note .font-bold {
+        /* Vetgedrukte tekst binnen trainer notities */
+        @apply font-semibold text-yellow-900;
+      }
+      .trainer-note ul {
+        /* Lijsten binnen trainer notities */
+        @apply list-disc list-inside mt-1 space-y-1;
+      }
+      .trainer-note ul ul {
+        /* Geneste lijsten binnen trainer notities */
+        @apply list-disc list-inside ml-4 mt-1 space-y-px;
+      }
+      .trainer-note h5 {
+        /* Subkopjes binnen trainer notities */
+        @apply text-sm font-semibold text-yellow-900 mb-1 mt-3 underline; /* Meer opvallend */
+      }
+      .trainer-note ol {
+        /* Genummerde lijsten binnen trainer notities */
+        @apply list-decimal list-inside mt-1 space-y-1;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fbfbfb;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c6e7ff;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b0d9f7;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FBFBFB] text-gray-800 antialiased">
+    <!-- Header / Navbar -->
+    <header class="bg-[#C6E7FF] shadow-md">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-bold text-gray-700 hover:text-gray-900"
+          >Excellentie door Design: AI (Trainerportaal)</a
+        >
+        <nav class="space-x-4">
+          <a href="index.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Home</a
+          >
+          <a
+            href="programma.html"
+            class="text-gray-700 hover:text-[#FFDDAE] font-semibold"
+            >Programma Overzicht</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+      <a href="programma.html" class="back-link"
+        >« Terug naar Programma Overzicht (Trainer)</a
+      >
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Trainer Gids: Deel 2 - AI-gedreven Procesoptimalisatie &
+        Risicoverbetering
+      </h1>
+      <p class="text-xl text-gray-500 mb-8">
+        Tijdsbestek: 13:45 – 15:30 (105 min)
+      </p>
+
+      <div class="trainer-note">
+        <p>
+          <strong>Overkoepelend Doel Deel 2:</strong> Deelnemers laten zien hoe
+          AI concreet kan worden toegepast om processen te optimaliseren en
+          risicomanagement te verbeteren. De focus ligt op de verschuiving van
+          reactief naar proactief en predictief, en het stimuleren van de
+          deelnemers om deze concepten op hun eigen context toe te passen.
+        </p>
+      </div>
+
+      <section class="content-section">
+        <h2>Gedetailleerde Agenda & Instructies Deel 2</h2>
+
+        <div class="time-block">
+          <h3 class="!mt-0">
+            13:45 – 13:55: Introductie Deel 2 & Verbinding met Eerdere Inzichten
+            (10 min)
+          </h3>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Korte samenvatting Deel 1, introductie en doelen
+            Deel 2.
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructies (10 min):</strong></p>
+            <ul>
+              <li>
+                <strong>Recapitulatie Deel 1 (3 min):</strong> Vat kort de
+                kernboodschappen van Deel 1 samen: hoe AI-concepten (als
+                'turbokrachten') en AI-ondersteunde besluitvorming de basis
+                leggen voor het streven naar excellentie. Gebruik de input van
+                deelnemers uit Deel 0 en Deel 1.
+              </li>
+              <li>
+                <strong>Introductie Deel 2 (4 min):</strong> Introduceer de
+                focus van Deel 2: de concrete toepassing van AI in het
+                optimaliseren van processen en het verbeteren van
+                risicomanagement.
+              </li>
+              <li>
+                <strong>Doelstelling Deel 2 (2 min):</strong> Maak duidelijk dat
+                het doel is te laten zien hoe AI helpt om van reactief naar
+                proactief en zelfs predictief te gaan in kwaliteits- en
+                risicomanagement.
+              </li>
+              <li>
+                <strong>Overzicht Hoofdblokken (1 min):</strong> Geef een
+                overzicht van de twee hoofdblokken die volgen: AI in
+                Procesoptimalisatie en AI in Risicoverbetering.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>
+            13:55 – 14:40: AI in Procesoptimalisatie: Van Inzicht naar Actie (45
+            min)
+          </h3>
+
+          <h4>Uitleg & Inspiratie (15 min)</h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Uitleg over Process Mining/Augmentation, Digital
+            Twins, AI in Robotica.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Uitleg & Inspiratie - 15 min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <h5>Onderwerpen te behandelen:</h5>
+                <ul>
+                  <li>
+                    <strong
+                      >Van Process Mining naar AI-gedreven Process
+                      Augmentation:</strong
+                    >
+                    Leg het verschil uit. Process Mining analyseert 'as-is',
+                    Process Augmentation gebruikt AI om actief te
+                    verbeteren/automatiseren/herontwerpen. Wijs deelnemers op de
+                    Process Mining Simulator op de website
+                    (`programma-deel1-process-mining.html`) als een praktisch
+                    voorbeeld.
+                  </li>
+                  <li>
+                    <strong>Introductie Digital Twins & AI-simulatie:</strong>
+                    Concept, 'wat-als' scenario's, voordelen (optimalisatie vóór
+                    implementatie). Geef een aansprekend voorbeeld (logistiek,
+                    productie, smart city).
+                  </li>
+                  <li>
+                    <strong
+                      >Rol van AI in Robotica en Autonome Systemen:</strong
+                    >
+                    Kort en relevant voor de groep. Focus op hogere
+                    consistentie, minder menselijke fouten.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Visuele Ondersteuning:</strong>
+                <ul>
+                  <li>
+                    Gebruik slides/flipover voor schema's (traditionele
+                    optimalisatie vs. AI-gedreven augmentatie).
+                  </li>
+                  <li>
+                    Overweeg een korte video (max 1-2 min) van een Digital Twin
+                    in actie (bijv. uit industrie of logistiek) indien de
+                    technische setup dit toelaat en de video echt verhelderend
+                    is. Test dit vooraf goed.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Deelnemer-gerichte link naar Process Mining Simulator -->
+          <div class="my-4 pt-2 border-t border-gray-200">
+            <div
+              class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-300 border-l-4 border-[#FFDDAE]"
+            >
+              <div
+                class="flex flex-col sm:flex-row items-center sm:items-start"
+              >
+                <div
+                  class="text-3xl text-[#005A8D] mb-2 sm:mb-0 sm:mr-4 flex-shrink-0"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="text-sm font-semibold text-gray-700 mb-1">
+                    Verwijzing: Process Mining Simulator
+                  </h5>
+                  <p class="text-gray-600 mb-2 text-xs">
+                    Deelnemers kunnen de Process Mining Simulator (eerder
+                    geïntroduceerd in Deel 1 materialen) gebruiken om een
+                    praktisch gevoel te krijgen bij het analyseren van
+                    procesdata.
+                  </p>
+                  <a
+                    href="programma-deel2-process-mining.html"
+                    target="_blank"
+                    class="inline-block bg-[#FFDDAE] text-gray-800 font-semibold py-1 px-3 rounded-md hover:bg-opacity-80 transition duration-300 shadow text-xs"
+                    >Open Simulator »</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4>
+            Interactieve Activiteit: "De AI Optimalisatie Werkplaats" (30 min)
+          </h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Instructies voor een groepsactiviteit gericht op het
+            optimaliseren van een gekozen proces met AI.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Interactieve Activiteit - 30 min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <strong>Doel:</strong> Deelnemers praktisch laten ervaren hoe AI
+                kan bijdragen aan het identificeren van procesknelpunten en het
+                ontwerpen van een geoptimaliseerd proces.
+              </li>
+              <li>
+                <h5>
+                  Opzet van de activiteit (gebruik flipover/whiteboard per
+                  groep):
+                </h5>
+                <ol>
+                  <li>
+                    <strong>Groepsvorming (2 min):</strong> Formeer groepen van
+                    3-4 deelnemers.
+                  </li>
+                  <li>
+                    <strong>Case Selectie (3 min):</strong>
+                    <ul>
+                      <li>
+                        <strong>Optie A (Voorkeur):</strong> Laat elke groep een
+                        *bestaand, problematisch proces* uit hun eigen
+                        organisatie (of een deelproces) selecteren dat ze willen
+                        optimaliseren. Stimuleer concrete voorbeelden.
+                      </li>
+                      <li>
+                        <strong>Optie B (Alternatief):</strong> Reik als
+                        facilitator 2-3 korte, generieke procescases aan (bijv.
+                        "Klachtenafhandeling", "Onboarding nieuwe medewerkers",
+                        "Leverancierscontractbeheer").
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Brainstorm & Huidige Staat (10 min):</strong>
+                    <ul>
+                      <li>
+                        Instrueer groepen het gekozen proces globaal te schetsen
+                        (stappen, actoren).
+                      </li>
+                      <li>
+                        Laat hen 2-3 belangrijke knelpunten of inefficiënties
+                        identificeren.
+                      </li>
+                      <li>
+                        Vraag welke data relevant zou kunnen zijn voor analyse
+                        van dit proces.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>AI-Interventie Brainstorm (10 min):</strong>
+                    <ul>
+                      <li>
+                        Stel de centrale vraag: "Stel je voor dat je
+                        geavanceerde AI-tools hebt (Process Mining,
+                        AI-simulatie/Digital Twin, voorspellende modellen). Hoe
+                        zou AI kunnen helpen om: (a) dieper inzicht te krijgen
+                        in oorzaken van knelpunten? (b) toekomstige problemen te
+                        voorspellen? (c) oplossingsscenario's te simuleren? (d)
+                        delen te automatiseren/augmenteren?"
+                      </li>
+                      <li>
+                        Laat groepen 2-3 concrete AI-interventies voor hun
+                        proces noteren en de verwachte 'turbokracht' ervan.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Korte Plenaire Deling (5 min):</strong> Vraag 1-2
+                    groepen om hun meest verrassende of veelbelovende
+                    AI-interventie te delen. Koppel als facilitator terug naar
+                    de theorie (bv. Process Augmentation, voorspellende
+                    analyses). Benadruk de link tussen data, AI-techniek en
+                    beoogde verbetering.
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>
+            14:40 – 15:25: AI in Risicoverbetering: Van Reactief naar Predictief
+            (45 min)
+          </h3>
+          <h4>Uitleg & Voorbeelden (15 min)</h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Uitleg over Predictive Analytics, AI & Compliance,
+            Ethische aspecten.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Uitleg & Voorbeelden - 15 min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <h5>Onderwerpen te behandelen:</h5>
+                <ul>
+                  <li>
+                    <strong>Predictive Analytics voor Risicomanagement:</strong>
+                    Leg uit hoe AI-modellen (getraind op historische data)
+                    potentiële risico's (operationeel, financieel, compliance,
+                    veiligheid) kunnen identificeren en kwantificeren *voordat*
+                    ze zich manifesteren. Geef voorbeelden: voorspellend
+                    onderhoud, fraudedetectie, projectrisico's.
+                  </li>
+                  <li>
+                    <strong>AI voor Compliance en Auditing:</strong> Bespreek
+                    automatisering van controles, continue monitoring,
+                    signaleren van non-compliance.
+                  </li>
+                  <li>
+                    <strong
+                      >De Ethische Imperatief & Risico's van AI zelf:</strong
+                    >
+                    Essentieel. Bespreek bias in data/algoritmes, transparantie
+                    (explainability), accountability, en de noodzaak van 'human
+                    oversight'.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Visuele Ondersteuning:</strong>
+                <ul>
+                  <li>
+                    Toon een schema dat de evolutie van risicomanagement
+                    illustreert: Reactief → Preventief → Predictief (met AI).
+                  </li>
+                  <li>
+                    Wijs deelnemers op de interactieve "Evolutie van
+                    Risicomanagement" visualisatie op de website
+                    (`risicomanagement-evolutie.html`) voor verdieping.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Link naar Risicomanagement Evolutie Visualisatie -->
+          <div class="my-4 pt-2 border-t border-gray-200">
+            <div
+              class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-300 border-l-4 border-[#005A8D]"
+            >
+              <div
+                class="flex flex-col sm:flex-row items-center sm:items-start"
+              >
+                <div
+                  class="text-3xl text-[#005A8D] mb-2 sm:mb-0 sm:mr-4 flex-shrink-0"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="text-sm font-semibold text-gray-700 mb-1">
+                    Verwijzing: Evolutie van Risicomanagement
+                  </h5>
+                  <p class="text-gray-600 mb-2 text-xs">
+                    Deelnemers kunnen de transformatie van risicomanagement, van
+                    reactief naar AI-gedreven voorspellend, verkennen via deze
+                    visualisatie.
+                  </p>
+                  <a
+                    href="programma-deel2-risicomanagement.html"
+                    target="_blank"
+                    class="inline-block bg-[#005A8D] text-white font-semibold py-1 px-3 rounded-md hover:bg-opacity-90 transition duration-300 shadow text-xs"
+                    >Bekijk Visualisatie »</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4>
+            Interactieve Activiteit: "AI Risico Radar & Ethisch Kompas" (30 min)
+          </h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Instructies voor individuele reflectie en
+            groepsdiscussie over AI-kansen en ethische dilemma's in
+            risicomanagement.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Interactieve Activiteit - 30 min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <strong>Doel:</strong> Deelnemers laten reflecteren op hoe AI
+                kan worden ingezet voor proactieve risico-identificatie in hun
+                domein, en hen bewust maken van de ethische overwegingen.
+              </li>
+              <li>
+                <h5>Opzet van de activiteit:</h5>
+                <ol>
+                  <li>
+                    <strong
+                      >Individuele Reflectie / Duo's (10 min): "Mijn Top Risico
+                      & AI-Kans"</strong
+                    >
+                    <ul>
+                      <li>
+                        Stel de vragen: "Denk aan een significant risico binnen
+                        jouw werkveld/organisatie. Hoe zou AI je kunnen helpen
+                        dit risico *eerder* te signaleren of de impact beter te
+                        voorspellen? Welke data is nodig?"
+                      </li>
+                      <li>
+                        Laat deelnemers kort noteren of in duo's bespreken.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong
+                      >Groepsdiscussie: "Het Ethische Spanningsveld" (15
+                      min)</strong
+                    >
+                    <ul>
+                      <li>
+                        Laat groepen (vorige of nieuwe) enkele geïdentificeerde
+                        risico's en AI-kansen delen.
+                      </li>
+                      <li>
+                        Introduceer 2-3 korte, prikkelende ethische
+                        dilemma's/stellingen (zie programma-opzet voor
+                        voorbeelden: AI voorspelt duur/disruptief risico;
+                        medewerkersdata gebruiken; verantwoordelijkheid bij
+                        AI-fouten).
+                      </li>
+                      <li>
+                        Laat groepen één of twee dilemma's bespreken: hoe AI
+                        benutten én ethisch handelen?
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Plenaire Wrap-up (5 min):</strong> Deel
+                    kerninzichten/aandachtspunten. Benadruk belang van
+                    "human-in-the-loop" en ethische richtlijnen.
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>
+            15:25 – 15:30: Afronding Deel 2 & Vooruitblik op Solution Design (5
+            min)
+          </h3>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Samenvatting en brug naar Deel 3.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Afronding & Vooruitblik - 5 min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <strong>Samenvatting:</strong> Vat kernboodschappen Deel 2
+                samen: AI als enabler voor proactieve procesoptimalisatie en
+                predictief risicomanagement.
+              </li>
+              <li>
+                <strong>Link naar Deel 3:</strong> Leg de brug: "In Deel 3 gaan
+                jullie zelf ontwerpen."
+              </li>
+              <li>
+                <strong>Aanmoediging:</strong> Moedig aan om ideeën uit Deel 2
+                mee te nemen.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Extra Suggesties voor Interactie (Traineroverwegingen)</h2>
+        <p class="italic text-gray-500 text-xs mb-2">
+          Deelnemer ziet: Optionele interactieve werkvormen.
+        </p>
+        <div class="trainer-note">
+          <p>
+            <strong
+              >Trainer Opties (Indien tijd en passend bij de groep):</strong
+            >
+          </p>
+          <ul>
+            <li>
+              <strong>"Speed Dating" met AI-toepassingen:</strong> Korte (2-3
+              min) uitwisselingen over specifieke AI-tech in hun werkveld (NLP,
+              computer vision, etc.).
+            </li>
+            <li>
+              <strong>Gastspreker (kort, 10-15 min):</strong> Professional met
+              AI-implementatie ervaring in kwaliteits-/risicomanagement.
+            </li>
+            <li>
+              <strong>"Debunk the Hype":</strong> Bespreek en nuanceer
+              misvattingen/overdreven claims over AI.
+            </li>
+          </ul>
+          <p class="mt-2">
+            Pas de diepgang en interactie aan op de groep om een balans te
+            vinden tussen kennisoverdracht en actieve participatie.
+          </p>
+        </div>
+      </section>
+
+      <div class="mt-12 text-center">
+        <a
+          href="programma-deel3-trainer.html"
+          class="bg-[#FFDDAE] text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-opacity-80 transition duration-300 shadow-md"
+        >
+          Naar Trainer Gids Deel 3 »
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <p>
+          © 2024 Mastermodule Excellentie door Design. Alle rechten
+          voorbehouden. (Trainerversie)
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

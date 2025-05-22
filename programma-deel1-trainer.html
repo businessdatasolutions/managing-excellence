@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Trainer: Deel 1 - AI Concepten & Excellentie in Besluitvorming
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          font-family: "Red Hat Text", sans-serif;
+        }
+      }
+      .content-section {
+        @apply mb-8 p-6 bg-white rounded-lg shadow-lg;
+      }
+      .content-section h2 {
+        @apply text-2xl font-bold text-gray-700 mb-4 pb-2 border-b-2 border-[#D4F6FF];
+      }
+      .content-section h3 {
+        @apply text-xl font-semibold text-gray-700 mt-6 mb-3;
+      }
+      .content-section h4 {
+        /* Voor deelnemer-gerichte subkoppen */
+        @apply text-lg font-semibold text-gray-600 mt-4 mb-2;
+      }
+      .content-section h5 {
+        /* Voor deelnemer-gerichte nog kleinere subkoppen */
+        @apply text-base font-semibold text-gray-700 mt-4 mb-2;
+      }
+      .content-section h6 {
+        @apply text-sm font-semibold mb-1 text-gray-700;
+      }
+      .content-section p,
+      .content-section ul,
+      .content-section ol {
+        @apply text-gray-600 leading-relaxed mb-3;
+      }
+      .content-section ul,
+      .content-section ol {
+        @apply list-inside ml-4;
+      }
+      .content-section ul {
+        @apply list-disc;
+      }
+      .content-section ol {
+        @apply list-decimal;
+      }
+      .content-section ul ul,
+      .content-section ol ol {
+        @apply ml-6 mt-1;
+      }
+      .content-section strong {
+        /* Deelnemer tekst strong */
+        @apply font-semibold text-gray-700;
+      }
+      .time-block {
+        /* Voor de lichtblauwe blokken rond agendapunten */
+        @apply bg-[#D4F6FF] bg-opacity-50 p-4 rounded-md mb-6;
+      }
+      .back-link {
+        @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
+      }
+      .trainer-note {
+        @apply my-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm rounded-md shadow;
+      }
+      .trainer-note strong,
+      .trainer-note .font-bold {
+        @apply font-semibold text-yellow-900;
+      }
+      .trainer-note ul {
+        @apply list-disc list-inside mt-1 space-y-1;
+      }
+      .trainer-note h5 {
+        /* Subkopjes binnen trainer notities */
+        @apply text-sm font-semibold text-yellow-900 mb-1 mt-2 underline;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fbfbfb;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c6e7ff;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b0d9f7;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FBFBFB] text-gray-800 antialiased">
+    <!-- Header / Navbar -->
+    <header class="bg-[#C6E7FF] shadow-md">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-bold text-gray-700 hover:text-gray-900"
+          >Excellentie door Design: AI (Trainerportaal)</a
+        >
+        <nav class="space-x-4">
+          <a href="index.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Home</a
+          >
+          <!-- Meer trainer-specifieke links hier indien nodig -->
+          <a
+            href="programma.html"
+            class="text-gray-700 hover:text-[#FFDDAE] font-semibold"
+            >Programma Overzicht</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+      <a href="programma.html" class="back-link"
+        >« Terug naar Programma Overzicht (Trainer)</a
+      >
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Trainer Gids: Deel 1 - AI Concepten & Excellentie in Besluitvorming
+      </h1>
+      <p class="text-xl text-gray-500 mb-8">
+        Tijdsbestek: 11:30 – 13:00 (90 min)
+      </p>
+
+      <div class="trainer-note">
+        <p>
+          <strong>Overkoepelend Doel Deel 1:</strong> Deelnemers voorzien van
+          een conceptueel begrip van AI, de relevantie ervan voor hun rol, en
+          hoe AI kan bijdragen aan excellente besluitvorming. Koppel dit aan de
+          'turbokrachten' en de 'Visie: De Excellente AI-Augmented Professional
+          in Actie' die in Deel 0 zijn geformuleerd.
+        </p>
+      </div>
+
+      <section class="content-section">
+        <h2>Gedetailleerde Agenda & Instructies Deel 1</h2>
+
+        <div class="time-block">
+          <h3 class="!mt-0">
+            11:30 – 12:00: AI Concepten: De 'Turbokrachten' van Excellentie (30
+            min)
+          </h3>
+
+          <h4>Uitleg (15 min)</h4>
+          <p class="mb-4">
+            <em
+              >(Deelnemertekst ter referentie: Introductie tot de kernbegrippen
+              van AI: Machine Learning, Deep Learning, Generatieve AI (LLM's
+              zoals ChatGPT). De exponentiële groei van AI-modellen en hun
+              'emergent abilities'. Benadruk de mens-AI samenwerking:
+              'AI-augmented professional' in plaats van 'AI-replaced
+              professional'.)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructie (Uitleg - 15 min):</strong></p>
+            <ul>
+              <li>
+                <strong>Inhoud:</strong> Geef een heldere, beknopte introductie
+                tot kernbegrippen: Machine Learning, Deep Learning, Generatieve
+                AI (specifiek LLM's zoals ChatGPT). Vermijd te veel jargon.
+              </li>
+              <li>
+                Verklaar de "AI Paradigms" (Symbolisch, Statistisch, Embodied
+                Intelligence) en link waar de focus ligt als we streven naar
+                excellentie (vaak een combinatie, met nadruk op statistisch voor
+                huidige trends).
+              </li>
+              <li>
+                Illustreer de exponentiële groei van AI-modellen en hun
+                'emergent abilities' (onverwachte nieuwe vaardigheden).
+              </li>
+              <li>
+                <strong>Kernboodschap:</strong> Leg sterk de nadruk op de
+                mens-AI samenwerking. Het doel is de 'AI-augmented
+                professional', niet de 'AI-replaced professional'. Dit is
+                cruciaal voor de mindset.
+              </li>
+              <li>
+                <strong>Interactief Element:</strong> Wijs deelnemers op de
+                online materialen: de "AI Paradigma's Infographic" en de
+                "Interactieve Oefeningen (Symbolisch vs. Statistisch)" als
+                verdieping of naslagwerk. Geef kort aan wat ze daar kunnen
+                vinden (bijv. `programma-deel1-infographic-original.html` en
+                `programma-deel1-oefeningen.html`).
+              </li>
+            </ul>
+          </div>
+
+          <h5 class="text-base font-semibold text-gray-700 mt-4 mb-2">
+            De Drie Pijlers van AI (Visuele Ondersteuning op Website)
+          </h5>
+          <div class="grid sm:grid-cols-3 gap-4 mb-4">
+            <div
+              class="bg-white p-3 rounded-lg shadow text-center border-t-2 border-[#C6E7FF]"
+            >
+              <div class="text-2xl mb-1 text-[#005A8D]">🧠</div>
+              <h6 class="text-sm font-semibold mb-1 text-gray-700">
+                Symbolische AI
+              </h6>
+              <p class="text-xs text-gray-600">Expliciete regels & logica.</p>
+            </div>
+            <div
+              class="bg-white p-3 rounded-lg shadow text-center border-t-2 border-[#D4F6FF]"
+            >
+              <div class="text-2xl mb-1 text-[#005A8D]">📊</div>
+              <h6 class="text-sm font-semibold mb-1 text-gray-700">
+                Statistische AI
+              </h6>
+              <p class="text-xs text-gray-600">Leren uit data & patronen.</p>
+            </div>
+            <div
+              class="bg-white p-3 rounded-lg shadow text-center border-t-2 border-[#FFDDAE]"
+            >
+              <div class="text-2xl mb-1 text-[#005A8D]">🤖</div>
+              <h6 class="text-sm font-semibold mb-1 text-gray-700">
+                Belichaamde AI
+              </h6>
+              <p class="text-xs text-gray-600">
+                Fysieke interactie & ervaring.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4 mb-6">
+            <a
+              href="programma-deel1-infographic-original.html"
+              target="_blank"
+              class="inline-block bg-[#FFDDAE] text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-opacity-80 transition duration-300 shadow hover:shadow-md text-sm"
+            >
+              Visualisatie: AI Paradigma's »
+            </a>
+            <a
+              href="programma-deel1-oefeningen.html"
+              target="_blank"
+              class="inline-block bg-[#005A8D] text-white font-semibold py-2 px-4 rounded-lg hover:bg-opacity-90 transition duration-300 shadow hover:shadow-md text-sm"
+            >
+              Interactieve Oefeningen »
+            </a>
+          </div>
+
+          <h4>Activiteit (10 min)</h4>
+          <p>
+            <em
+              >(Deelnemertekst ter referentie: Korte demo van een Generatieve
+              AI-tool (bijv. ChatGPT) om de mogelijkheden te laten zien, met
+              nadruk op de outputkwaliteit en de ethische overwegingen.)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructie (Activiteit - 10 min):</strong></p>
+            <ul>
+              <li>
+                Demonstreer een Generatieve AI-tool (ChatGPT is een goede keuze
+                vanwege bekendheid).
+              </li>
+              <li>
+                <strong>Focus van Demo:</strong>
+                <ul>
+                  <li>
+                    Laat zien hoe een goede prompt tot kwalitatief betere output
+                    leidt.
+                  </li>
+                  <li>
+                    Toon een voorbeeld waar de AI output genereert die kritisch
+                    bekeken moet worden (bv. feitelijke onjuistheid, bias, of te
+                    generiek).
+                  </li>
+                  <li>
+                    Bespreek kort ethische overwegingen: bronvermelding (of
+                    gebrek daaraan), potentieel voor misinformatie, privacy.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Interactie:</strong> Vraag deelnemers om een simpele
+                prompt te suggereren, of laat een deelnemer een prompt intypen.
+              </li>
+            </ul>
+          </div>
+
+          <h4>Discussie (5 min)</h4>
+          <p>
+            <em
+              >(Deelnemertekst ter referentie: Korte Q&A over de demo en de
+              basisconcepten.)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructie (Discussie - 5 min):</strong></p>
+            <ul>
+              <li>Beantwoord vragen over de demo en de basis AI-concepten.</li>
+              <li>
+                Peil naar eerste reacties: "Welke mogelijkheden zien jullie
+                direct? Welke zorgen roept dit op?"
+              </li>
+              <li>Houd de tijd strak in de gaten.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>12:00 – 12:45: Excellentie in Besluitvorming met AI (45 min)</h3>
+          <h4>Uitleg (15 min)</h4>
+          <p>
+            <em
+              >(Deelnemertekst ter referentie: Herhaling van Systeem 1 en
+              Systeem 2 denken (Kahneman) en hoe AI beide systemen kan
+              'augmenteren' voor betere, snellere en meer excellente
+              beslissingen. AI als 'turbokracht' voor datagedreven
+              besluitvorming: van beschrijvend naar voorspellend en
+              prescriptief. De rol van "Data Science Landscape" en hoe AI-tools
+              de traditionele stappen versnellen en verdiepen.)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructie (Uitleg - 15 min):</strong></p>
+            <ul>
+              <li>
+                <strong>Kahneman Koppeling:</strong> Herhaal kort Systeem 1
+                (snel, intuïtief) en Systeem 2 (langzaam, analytisch) denken.
+                Gebruik de afbeelding `images/kahneman.png` (die op de webpagina
+                klikbaar is) als visuele ondersteuning. Leg uit hoe AI Systeem 1
+                kan informeren met snelle inzichten en Systeem 2 kan
+                ondersteunen met diepgaande data-analyse.
+              </li>
+              <li>
+                <strong>AI als 'Turbokracht':</strong> Positioneer AI als een
+                enabler voor datagedreven besluitvorming. Bespreek de evolutie:
+                <ul>
+                  <li>Beschrijvend (wat is er gebeurd?)</li>
+                  <li>Diagnostisch (waarom is het gebeurd?)</li>
+                  <li>
+                    Voorspellend (wat gaat er gebeuren?) - hier komt AI sterk in
+                    beeld.
+                  </li>
+                  <li>
+                    Prescriptief (wat moeten we doen?) - de ultieme stap, vaak
+                    met AI-aanbevelingen.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Data Science Landscape:</strong> Geef een high-level
+                overzicht van het "Data Science Landscape" (of een vergelijkbaar
+                model) en benadruk hoe AI-tools traditionele stappen
+                (dataverzameling, -opschoning, modelbouw, visualisatie) kunnen
+                versnellen en verdiepen.
+              </li>
+            </ul>
+          </div>
+
+          <div class="my-6 flex justify-center">
+            <img
+              id="kahnemanImage"
+              src="images/kahneman.png"
+              alt="Systeem 1 en Systeem 2 denken - Kahneman"
+              class="rounded-lg shadow-lg max-w-md w-full object-contain border-2 border-gray-200 cursor-pointer transition-all duration-300 ease-in-out"
+              style="max-height: 350px"
+            />
+          </div>
+
+          <h4>Casusbespreking (15 min)</h4>
+          <p>
+            <em
+              >(Deelnemertekst ter referentie: Aan de hand van concrete
+              voorbeelden (mogelijk gekoppeld aan jouw voorbereidingsopdracht)
+              bespreken we hoe AI excellentie creëert in verschillende sectoren,
+              zoals gepersonaliseerde aanbevelingen of geoptimaliseerde
+              bedrijfsprocessen.)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong>Trainer Instructie (Casusbespreking - 15 min):</strong>
+            </p>
+            <ul>
+              <li>
+                Bereid 1-2 korte, aansprekende cases voor waar AI significant
+                bijdraagt aan excellente besluitvorming (bijv. gepersonaliseerde
+                marketing, supply chain optimalisatie, voorspellend onderhoud in
+                hun sector).
+              </li>
+              <li>
+                <strong>Koppel aan Voorbereidingsopdracht:</strong> Vraag
+                deelnemers naar de voorbeelden die zij hebben gevonden in hun
+                voorbereiding (hoe AI hun vakgebied gaat veranderen). Laat 1-2
+                deelnemers kort hun bevindingen delen.
+              </li>
+              <li>
+                Focus op: "Welke data wordt gebruikt? Welke AI-techniek
+                (ongeveer)? Wat is de impact op de beslissing/het resultaat? Hoe
+                leidt dit tot excellentie (verwachtingen overtreffen)?"
+              </li>
+            </ul>
+          </div>
+
+          <h4>Groepsdiscussie (15 min)</h4>
+          <p>
+            <em
+              >(Deelnemertekst ter referentie: Hoe kunnen de concepten van AI en
+              "Excellentie door Design" worden toegepast binnen jouw eigen
+              organisatie? Welke 'turbokrachten' van AI herken jij als
+              potentieel waardevol voor jouw werkveld?)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong>Trainer Instructie (Groepsdiscussie - 15 min):</strong>
+            </p>
+            <ul>
+              <li>
+                Stel de vraag plenair of laat deelnemers in kleine groepjes
+                (2-3) kort brainstormen.
+              </li>
+              <li>
+                Vragen om te sturen:
+                <ul>
+                  <li>
+                    "Welke beslissingen in jullie dagelijks werk zouden baat
+                    hebben bij betere data/inzichten?"
+                  </li>
+                  <li>
+                    "Op welke gebieden willen jullie de verwachtingen van
+                    klanten/stakeholders overtreffen?"
+                  </li>
+                  <li>
+                    "Welke 'turbokrachten' (vanuit Deel 0 of de AI-concepten)
+                    zien jullie als direct toepasbaar of interessant om te
+                    verkennen voor jullie organisatie?"
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Verzamel enkele ideeën plenair. Het doel is niet een volledige
+                oplossing, maar het stimuleren van reflectie en toepassing.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>12:45 – 13:00: Wrap-up & Vooruitblik (15 min)</h3>
+          <h4>Samenvatting (5 min)</h4>
+          <p>
+            <em
+              >(Deelnemertekst ter referentie: We vatten de belangrijkste
+              inzichten en leerpunten van Deel 1 samen.)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructie (Samenvatting - 5 min):</strong></p>
+            <ul>
+              <li>
+                Vat de kernboodschappen van Deel 1 kort en krachtig samen: AI
+                als tool, de AI-augmented professional, AI voor betere
+                besluitvorming.
+              </li>
+              <li>
+                Herhaal 1-2 belangrijke inzichten die uit de groepsdiscussie
+                naar voren kwamen.
+              </li>
+            </ul>
+          </div>
+          <h4>Vooruitblik naar Deel 2 (10 min)</h4>
+          <p>
+            <em
+              >(Deelnemertekst ter referentie: Een korte introductie van Deel 2,
+              waar we dieper ingaan op AI-gedreven procesoptimalisatie en
+              risicoverbetering, en hoe dit bijdraagt aan het bereiken van
+              excellentie.)</em
+            >
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructie (Vooruitblik - 10 min):</strong></p>
+            <ul>
+              <li>
+                Geef een enthousiasmerende preview van Deel 2: "Nu we de
+                basisconcepten hebben, gaan we kijken hoe AI concreet processen
+                kan optimaliseren en risico's kan helpen verbeteren."
+              </li>
+              <li>
+                Noem kort de hoofdthema's van Deel 2 (Procesoptimalisatie,
+                Risicoverbetering).
+              </li>
+              <li>
+                Leg de relevantie uit voor het bereiken van de excellentie die
+                in Deel 0 is besproken.
+              </li>
+              <li>Geef instructies voor de lunchpauze.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section bg-gray-100 border-l-4 border-[#FFDDAE]">
+        <h3 class="!mt-0 !mb-2">Pauze</h3>
+        <p class="text-gray-600">13:00 – 13:45: Lunchpauze</p>
+      </section>
+
+      <div class="mt-12 text-center">
+        <a
+          href="programma-deel2-trainer.html"
+          class="bg-[#FFDDAE] text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-opacity-80 transition duration-300 shadow-md"
+        >
+          Naar Trainer Gids Deel 2 »
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <p>
+          © 2024 Mastermodule Excellentie door Design. Alle rechten
+          voorbehouden. (Trainerversie)
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const kahnemanImage = document.getElementById("kahnemanImage");
+        let isEnlarged = false;
+
+        if (kahnemanImage) {
+          kahnemanImage.addEventListener("click", function () {
+            if (isEnlarged) {
+              this.classList.remove("max-w-2xl");
+              this.classList.add("max-w-md");
+              this.style.maxHeight = "350px";
+              isEnlarged = false;
+            } else {
+              this.classList.remove("max-w-md");
+              this.classList.add("max-w-2xl");
+              this.style.maxHeight = "none";
+              isEnlarged = true;
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

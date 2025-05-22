@@ -32,8 +32,7 @@
         @apply text-lg font-semibold text-gray-600 mt-4 mb-2;
       }
       .content-section h5 {
-        /* Toegevoegd voor consistentie indien nodig */
-        @apply text-base font-semibold text-gray-700 mt-4 mb-2; /* Of md, sm afhankelijk van hiërarchie */
+        @apply text-base font-semibold text-gray-700 mt-4 mb-2;
       }
       .content-section h6 {
         @apply text-sm font-semibold mb-1 text-gray-700;
@@ -67,7 +66,6 @@
         @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
       }
 
-      /* WebKit-specifieke scrollbar styling */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -131,49 +129,57 @@
       </p>
 
       <section class="content-section">
-        <h2>Agenda Deel 1</h2>
+        <h2>Wat je in deze sessie zult ontdekken en doen</h2>
+        <p>
+          In Deel 1 duiken we in de fundamentele concepten van Artificiële
+          Intelligentie en verkennen we hoe deze technologieën besluitvorming
+          kunnen transformeren naar een niveau van excellentie. We kijken naar
+          de 'turbokrachten' achter AI en hoe jij, als professional, hiermee je
+          impact kunt vergroten.
+        </p>
 
-        <h3>
-          11:30 – 12:00: AI Concepten: De 'Turbokrachten' van Excellentie (30
-          min)
-        </h3>
         <div class="time-block">
-          <h4>Uitleg (15 min)</h4>
-          <p class="mb-4">
-            Introductie tot de kernbegrippen van AI: Machine Learning, Deep
-            Learning, Generatieve AI (LLM's zoals ChatGPT). De exponentiële
-            groei van AI-modellen en hun 'emergent abilities'. Benadruk de
-            mens-AI samenwerking: 'AI-augmented professional' in plaats van
-            'AI-replaced professional'.
+          <h3 class="!mt-0">
+            11:30 – 12:00: AI Concepten: De 'Turbokrachten' van Excellentie (30
+            min)
+          </h3>
+          <h4>Kernbegrippen en de AI-Augmented Professional</h4>
+          <p>
+            We starten met een heldere uitleg van essentiële AI-termen zoals
+            Machine Learning, Deep Learning en Generatieve AI (denk aan
+            ChatGPT). Je krijgt inzicht in de verschillende AI-paradigma's –
+            Symbolisch, Statistisch en Belichaamd – en hoe deze bijdragen aan
+            het streven naar excellentie. We bespreken de snelle groei van
+            AI-modellen en hun verrassende nieuwe mogelijkheden ('emergent
+            abilities'). Een belangrijk aandachtspunt is de samenwerking tussen
+            mens en AI: hoe word je een 'AI-augmented professional' in plaats
+            van vervangen te worden door AI?
           </p>
 
-          <h5 class="text-base font-semibold text-gray-700 mt-4 mb-2">
-            <!-- text-base gebruikt voor h5 hier -->
-            De Drie Pijlers van AI
-          </h5>
-          <div class="grid sm:grid-cols-3 gap-4 mb-6">
+          <h5 class="mt-4">Verken de Drie Pijlers van AI</h5>
+          <div class="grid sm:grid-cols-3 gap-4 mb-4">
             <div
-              class="bg-white p-4 rounded-lg shadow text-center border-t-2 border-[#C6E7FF]"
+              class="bg-white p-3 rounded-lg shadow text-center border-t-2 border-[#C6E7FF]"
             >
-              <div class="text-3xl mb-2 text-[#005A8D]">🧠</div>
+              <div class="text-2xl mb-1 text-[#005A8D]">🧠</div>
               <h6 class="text-sm font-semibold mb-1 text-gray-700">
                 Symbolische AI
               </h6>
               <p class="text-xs text-gray-600">Expliciete regels & logica.</p>
             </div>
             <div
-              class="bg-white p-4 rounded-lg shadow text-center border-t-2 border-[#D4F6FF]"
+              class="bg-white p-3 rounded-lg shadow text-center border-t-2 border-[#D4F6FF]"
             >
-              <div class="text-3xl mb-2 text-[#005A8D]">📊</div>
+              <div class="text-2xl mb-1 text-[#005A8D]">📊</div>
               <h6 class="text-sm font-semibold mb-1 text-gray-700">
                 Statistische AI
               </h6>
               <p class="text-xs text-gray-600">Leren uit data & patronen.</p>
             </div>
             <div
-              class="bg-white p-4 rounded-lg shadow text-center border-t-2 border-[#FFDDAE]"
+              class="bg-white p-3 rounded-lg shadow text-center border-t-2 border-[#FFDDAE]"
             >
-              <div class="text-3xl mb-2 text-[#005A8D]">🤖</div>
+              <div class="text-2xl mb-1 text-[#005A8D]">🤖</div>
               <h6 class="text-sm font-semibold mb-1 text-gray-700">
                 Belichaamde AI
               </h6>
@@ -182,92 +188,94 @@
               </p>
             </div>
           </div>
-          <div class="text-center sm:text-left mb-6">
-            <!-- mb-6 toegevoegd voor ruimte -->
+          <div class="flex flex-wrap gap-4 mb-6">
             <a
-              href="programma-deel1-infographic.html"
+              href="programma-deel1-infographic-original.html"
               class="inline-block bg-[#FFDDAE] text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-opacity-80 transition duration-300 shadow hover:shadow-md text-sm"
             >
-              Bekijk de AI Paradigma's Infographic (visuele verkenning) »
+              Visualisatie: AI Paradigma's »
             </a>
-          </div>
-
-          <div class="mt-6 text-center sm:text-left">
             <a
               href="programma-deel1-oefeningen.html"
-              class="inline-block bg-[#005A8D] text-white font-semibold py-2 px-5 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105 text-sm"
+              class="inline-block bg-[#005A8D] text-white font-semibold py-2 px-4 rounded-lg hover:bg-opacity-90 transition duration-300 shadow hover:shadow-md text-sm"
             >
-              Naar Oefeningen »
+              Interactieve Oefeningen: Symbolisch vs. Statistisch »
             </a>
           </div>
 
-          <h4 class="text-lg font-semibold text-gray-700 mt-8 mb-3">
-            <!-- mt-8 ipv mt-6 voor meer ruimte -->
-            Activiteit (10 min)
-          </h4>
+          <h4>Activiteit: Generatieve AI in de Praktijk</h4>
           <p>
-            Korte demo van een Generatieve AI-tool (bijv. ChatGPT) om de
-            mogelijkheden te laten zien, met nadruk op de outputkwaliteit en de
-            ethische overwegingen.
+            Ervaar zelf de kracht van een Generatieve AI-tool! We geven een
+            korte demo (bijvoorbeeld met ChatGPT) om de mogelijkheden te
+            illustreren, met speciale aandacht voor de kwaliteit van de output
+            en belangrijke ethische overwegingen.
           </p>
-          <h4 class="text-lg font-semibold text-gray-700 mt-4 mb-3">
-            Discussie (5 min)
-          </h4>
-          <p>Korte Q&A over de demo en de basisconcepten.</p>
+
+          <h4>Discussie</h4>
+          <p>
+            Na de demo is er ruimte voor jouw vragen over de basisconcepten van
+            AI en de getoonde tool.
+          </p>
         </div>
 
-        <h3>12:00 – 12:45: Excellentie in Besluitvorming met AI (45 min)</h3>
         <div class="time-block">
-          <h4>Uitleg (15 min)</h4>
+          <h3>12:00 – 12:45: Excellentie in Besluitvorming met AI (45 min)</h3>
+          <h4>Systeemdenken en Datagedreven Besluiten</h4>
           <p>
-            Herhaling van Systeem 1 en Systeem 2 denken (Kahneman) en hoe AI
-            beide systemen kan 'augmenteren' voor betere, snellere en meer
-            excellente beslissingen. AI als 'turbokracht' voor datagedreven
-            besluitvorming: van beschrijvend naar voorspellend en prescriptief.
-            De rol van "Data Science Landscape" en hoe AI-tools de traditionele
-            stappen versnellen en verdiepen.
+            We frissen het concept van Systeem 1 (intuïtief) en Systeem 2
+            (analytisch) denken van Kahneman op. Vervolgens verkennen we hoe AI
+            beide denksystemen kan versterken ('augmenteren') voor betere,
+            snellere en meer excellente beslissingen. Ontdek hoe AI fungeert als
+            een 'turbokracht' voor datagedreven besluitvorming, en de
+            transformatie van beschrijvende analyses naar voorspellende en zelfs
+            prescriptieve inzichten. We kijken ook naar het "Data Science
+            Landscape" en hoe AI-tools traditionele analysestappen kunnen
+            versnellen en verdiepen.
           </p>
+
           <div class="my-6 flex justify-center">
             <img
               id="kahnemanImage"
               src="images/kahneman.png"
-              alt="Systeem 1 en Systeem 2 denken -
-            Kahneman"
+              alt="Systeem 1 en Systeem 2 denken - Kahneman"
               class="rounded-lg shadow-lg max-w-md w-full object-contain border-2 border-gray-200 cursor-pointer transition-all duration-300 ease-in-out"
-              style="max-height: 400px"
+              style="max-height: 350px"
             />
           </div>
-          <h4 class="mt-4">Casusbespreking (15 min)</h4>
+
+          <h4>Casusbespreking: AI & Excellentie in de Praktijk</h4>
           <p>
-            Hoe AI excellentie creëert in specifieke sectoren (bijv.
-            gepersonaliseerde aanbevelingen, geoptimaliseerde processen). Koppel
-            hierbij aan de voorbereidingsopdracht van studenten.
+            Aan de hand van concrete voorbeelden (mogelijk gekoppeld aan jouw
+            voorbereidingsopdracht) bespreken we hoe AI excellentie creëert in
+            verschillende sectoren, zoals gepersonaliseerde aanbevelingen of
+            geoptimaliseerde bedrijfsprocessen.
           </p>
 
-          <h4 class="mt-4">Groepsdiscussie (15 min)</h4>
+          <h4>Groepsdiscussie: Toepassing in Jouw Organisatie</h4>
           <p>
-            Hoe kunnen de concepten van AI en Excellentie door Design worden
-            toegepast op de eigen organisatie? Welke "turbokrachten" zijn hierin
-            te herkennen?
+            Hoe kunnen de concepten van AI en "Excellentie door Design" worden
+            toegepast binnen jouw eigen organisatie? Welke 'turbokrachten' van
+            AI herken jij als potentieel waardevol voor jouw werkveld?
           </p>
         </div>
 
-        <h3>12:45 – 13:00: Wrap-up Deel 1 & Brug naar Deel 2 (15 min)</h3>
         <div class="time-block">
-          <h4>Samenvatting (5 min)</h4>
-          <p>Belangrijkste inzichten uit Deel 1.</p>
-
-          <h4 class="mt-4">Vooruitblik (10 min)</h4>
+          <h3>12:45 – 13:00: Wrap-up & Vooruitblik (15 min)</h3>
+          <h4>Samenvatting</h4>
           <p>
-            Introductie van Deel 2 (AI-gedreven procesoptimalisatie en
-            risicoverbetering) en de relevantie daarvan voor het bereiken van
-            excellentie.
+            We vatten de belangrijkste inzichten en leerpunten van Deel 1 samen.
+          </p>
+          <h4>Vooruitblik naar Deel 2</h4>
+          <p>
+            Een korte introductie van Deel 2, waar we dieper ingaan op
+            AI-gedreven procesoptimalisatie en risicoverbetering, en hoe dit
+            bijdraagt aan het bereiken van excellentie.
           </p>
         </div>
       </section>
 
       <section class="content-section bg-gray-100 border-l-4 border-[#FFDDAE]">
-        <h3 class="text-xl font-semibold text-gray-700 !mt-0 !mb-2">Pauze</h3>
+        <h3 class="!mt-0 !mb-2">Pauze</h3>
         <p class="text-gray-600">13:00 – 13:45: Lunchpauze</p>
       </section>
 
@@ -294,21 +302,19 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const kahnemanImage = document.getElementById("kahnemanImage");
-        let isEnlarged = false; // Houdt de huidige staat bij
+        let isEnlarged = false;
 
         if (kahnemanImage) {
           kahnemanImage.addEventListener("click", function () {
             if (isEnlarged) {
-              // Maak kleiner
-              this.classList.remove("max-w-5xl"); // Of een andere 'grote' class die je kiest
+              this.classList.remove("max-w-2xl"); // Aangepast van max-w-5xl voor consistentie
               this.classList.add("max-w-md");
-              this.style.maxHeight = "400px"; // Herstel de oorspronkelijke max-height
+              this.style.maxHeight = "350px";
               isEnlarged = false;
             } else {
-              // Maak groter
               this.classList.remove("max-w-md");
-              this.classList.add("max-w-5xl"); // Grotere maximale breedte
-              this.style.maxHeight = "none"; // Verwijder de hoogtebeperking voor de vergrote staat
+              this.classList.add("max-w-2xl");
+              this.style.maxHeight = "none";
               isEnlarged = true;
             }
           });
