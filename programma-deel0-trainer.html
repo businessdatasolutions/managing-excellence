@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programma Deel 0 - Welkom & Noodzaak van Excellentie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          font-family: "Red Hat Text", sans-serif;
+        }
+      }
+      .content-section {
+        @apply mb-8 p-6 bg-white rounded-lg shadow-lg;
+      }
+      .content-section h2 {
+        @apply text-2xl font-bold text-gray-700 mb-4 pb-2 border-b-2 border-[#D4F6FF];
+      }
+      .content-section h3 {
+        @apply text-xl font-semibold text-gray-700 mt-6 mb-3; /* Consistent met andere h3 */
+      }
+      .content-section h4 {
+        @apply text-lg font-semibold text-gray-600 mt-4 mb-2;
+      }
+      .content-section p,
+      .content-section ul,
+      .content-section ol {
+        @apply text-gray-600 leading-relaxed mb-3;
+      }
+      .content-section ul,
+      .content-section ol {
+        /* Gecentraliseerde lijst styling */
+        @apply list-inside ml-4;
+      }
+      .content-section ul {
+        @apply list-disc;
+      }
+      .content-section ol {
+        @apply list-decimal;
+      }
+      .content-section ul ul,
+      .content-section ol ol {
+        /* Styling voor geneste lijsten */
+        @apply ml-6 mt-1;
+      }
+      .content-section strong {
+        @apply font-semibold text-gray-700;
+      }
+      .time-block {
+        @apply bg-[#D4F6FF] bg-opacity-50 p-4 rounded-md mb-6; /* Iets meer margin-bottom */
+      }
+      .time-block-title {
+        @apply font-bold text-gray-700;
+      }
+      .back-link {
+        @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
+      }
+
+      /* WebKit-specifieke scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fbfbfb;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c6e7ff;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b0d9f7;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FBFBFB] text-gray-800 antialiased">
+    <!-- Header / Navbar -->
+    <header class="bg-[#C6E7FF] shadow-md">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-bold text-gray-700 hover:text-gray-900"
+          >Excellentie door Design: AI</a
+        >
+        <nav class="space-x-4">
+          <a href="index.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Home</a
+          >
+          <a href="over.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Over de Module</a
+          >
+          <a
+            href="programma.html"
+            class="text-gray-700 hover:text-[#FFDDAE] font-semibold"
+            >Programma</a
+          >
+          <a
+            href="voorbereiding.html"
+            class="text-gray-700 hover:text-[#FFDDAE]"
+            >Voorbereiding</a
+          >
+          <a href="contact.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <a href="programma.html" class="back-link">« Terug naar Programma Overzicht (Trainer)</a>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Trainer Instructie: Deel 0 - Welkom & De Noodzaak van Excellentie met AI
+      </h1>
+      <p class="text-xl text-gray-500 mb-8">Tijdsbestek: 09:30 – 11:30 (120 minuten)</p>
+
+      <section class="content-section">
+        <h2>Overkoepelend Doel van Deel 0</h2>
+        <p>
+          Het doel van deze eerste sessie is tweeledig: 
+          1) Deelnemers (professionals in Kwaliteit- en Risicomanagement) introduceren tot het centrale thema van de mastermodule: het overtreffen van verwachtingen door de strategische inzet van AI, met behoud van menselijke excellentie.
+          2) Deelnemers direct actief betrekken bij het verkennen van excellentie en hen kennis laten maken met de analogie-methode als een krachtig hulpmiddel voor strategisch denken en innovatie. Deze methode is gebaseerd op de principes van analogisch redeneren zoals beschreven door Carroll & Sørensen (2024).
+        </p>
+        <p class="mt-2">
+          <strong>Referentieartikel voor Trainer:</strong> Carroll, G. R., & Sørensen, J. B. (2024). Strategy Theory Using Analogy: Rationale, Tools and Examples. <em>Strategy Science, 9</em>(4), 483-498. Het is aanbevolen dit artikel vooraf te bestuderen voor een dieper begrip van de theoretische onderbouwing.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h2>Benodigdheden (Voorbereiding Trainer)</h2>
+        <p>Zorg voor de volgende materialen:</p>
+        <ul class="list-disc">
+          <li>Minimaal 6 flipoverbladen, elk met een duidelijke titel (zie hieronder).</li>
+          <li>Voldoende stiften in verschillende kleuren.</li>
+          <li>Een ruime hoeveelheid post-its voor de deelnemers.</li>
+          <li>Optioneel: printouts van de kernstellingen.</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Voorbereiding Flipoverbladen (Exacte Titels)</h2>
+        <p>De flipoverbladen dienen als visuele ankers en structuur voor de interactieve oefeningen. Bereid ze als volgt voor:</p>
+        <ul class="list-disc">
+          <li>Blad 1: "<strong>Kwaliteit NU</strong>"</li>
+          <li>Blad 2: "<strong>Excellentie NU / ONZE VISIE</strong>"</li>
+          <li>Blad 3: "<strong>BENCHMARKS van EXCELLENTIE</strong>" <span class="text-xs text-gray-500">(Voorbeelden van organisaties/initiatieven)</span></li>
+          <li>Blad 4: "<strong>BENCHMARK ANALYSE: De Kracht Achter Succes</strong>"
+            <ul class="list-circle ml-6 mt-1">
+              <li>Kolom 1: GEKOZEN BENCHMARK <span class="text-xs text-gray-500">(De "Source" in de analogie)</span></li>
+              <li>Kolom 2: WAT maakt deze BENCHMARK EXCELLENT? <span class="text-xs text-gray-500">(Observeerbare uitkomst/prestatie; de "Source Conclusion")</span></li>
+              <li>Kolom 3: HOE/WAAROM werd deze excellentie bereikt? <span class="text-xs text-gray-500">(Onderliggende 'turbokracht' / causaal mechanisme; de "Verticale Relaties" van de Source)</span></li>
+            </ul>
+          </li>
+          <li>Blad 5: "<strong>ONZE ROUTE naar EXCELLENTIE met AI (De Analogie Toegepast)</strong>"
+            <ul class="list-circle ml-6 mt-1">
+              <li>Kolom 1: OVEREENKOMSTEN met de BENCHMARK <span class="text-xs text-gray-500">(Kansen; "Horizontale Relaties" - positief)</span></li>
+              <li>Kolom 2: VERSCHILLEN met de BENCHMARK <span class="text-xs text-gray-500">(Uitdagingen/Aanpassingen; "Horizontale Relaties" - negatief)</span></li>
+              <li>Kolom 3: ONZE UNIEKE BIJDRAGE + NIEUWE COMPETENTIES <span class="text-xs text-gray-500">(Als AI-augmented professional; de "Target Conclusion" en benodigde "Target Premises")</span></li>
+            </ul>
+          </li>
+          <li>Blad 6 (Syntheseblad): "<strong>VISIE: De Excellente AI-Augmented Professional in Actie</strong>"</li>
+        </ul>
+        <p class="mt-2 text-sm"><strong>Trainer Noot:</strong> De terminologie "(Source)", "(Verticale Relaties)", etc. is voor uw begrip en link naar het artikel. Deze hoeft niet per se op de flipovers voor de deelnemers, tenzij u dit expliciet wilt introduceren.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Gedetailleerde Agenda & Instructies voor Deel 0</h2>
+
+        <div class="time-block">
+          <h3 class="!mt-0">09:30-09:50: Welkom en Kennismaking (20 min)</h3>
+          <ul class="list-disc">
+            <li><strong>Voorstelronde (10 min):</strong> Laat deelnemers kort zichzelf voorstellen (naam, rol, organisatie, en 1 ding dat ze hopen te leren/bereiken met AI in hun werk).</li>
+            <li><strong>Introductie Programma (10 min):</strong> Geef een kort overzicht van de mastermodule, de structuur van de dag, en benadruk het interactieve karakter. Stel het centrale doel van de module (excellentie door AI) voor.</li>
+          </ul>
+        </div>
+
+        <div class="time-block">
+          <h3>09:50-10:30: IJsbreker & Benchmarks van Excellentie (40 min)</h3>
+          <p><strong>Doel:</strong> Individuele en collectieve definities van kwaliteit en excellentie activeren en een set van inspirerende benchmarks verzamelen.</p>
+          <ul class="list-disc">
+            <li><strong>Interactie - Vraag 1 (Flipoverblad 1 - 10 min):</strong>
+                <ul class="list-circle ml-6 mt-1">
+                    <li>Vraag: "Wat betekent 'kwaliteit' voor jullie in je huidige rol?"</li>
+                    <li>Instructie: Laat deelnemers individueel 2-3 kernwoorden/zinnen op post-its schrijven (5 min).</li>
+                    <li>Plenair: Bespreek enkele antwoorden kort, cluster eventueel op het flipoverblad (5 min).</li>
+                </ul>
+            </li>
+            <li><strong>Interactie - Vraag 2 (Flipoverblad 2 - 10 min):</strong>
+                <ul class="list-circle ml-6 mt-1">
+                    <li>Vraag: "En wat verstaan jullie onder 'excellentie' in jullie vakgebied?"</li>
+                    <li>Instructie: Weer individueel op post-its (5 min).</li>
+                    <li>Plenair: Bespreek en vergelijk met 'kwaliteit'. Introduceer hier al het idee dat excellentie verwachtingen overtreft (5 min).</li>
+                </ul>
+            </li>
+            <li><strong>Interactie - Vraag 3 (Flipoverblad 3 - 15 min):</strong>
+                <ul class="list-circle ml-6 mt-1">
+                    <li>Vraag: "Welke organisaties of initiatieven (binnen of buiten jullie sector) zien jullie als absolute BENCHMARKS van EXCELLENTIE? Schrijf de naam en 1 kernreden waarom op een post-it en plak deze op Flipoverblad 3."</li>
+                    <li>Instructie: Stimuleer diversiteit in voorbeelden (7 min schrijven/plakken).</li>
+                    <li>Plenair: Bespreek 1-2 voorbeelden dieper: "Wat maakt hen zo excellent? Welke resultaten boeken zij?" (8 min).</li>
+                </ul>
+            </li>
+          </ul>
+          
+          <!-- Introductie Stellingen (Zoals eerder gemaakt, nu als instructie voor de trainer) -->
+          <div class="mt-6 pt-4 border-t border-gray-300">
+            <h5 class="text-base font-semibold text-gray-700 mb-3 text-center sm:text-left">
+              Introduceer Kernstellingen voor Discussie (5 min - geïntegreerd):
+            </h5>
+            <p class="text-sm mb-3">Maak deze stellingen visueel aanwezig (bijv. op een apart bord of slides) en/of noem ze expliciet om de discussie over excellentie en de rol van AI te prikkelen. Weef ze door de voorgaande en volgende discussies.</p>
+            <div class="space-y-6"> 
+              <div class="bg-[#D4F6FF] p-6 rounded-xl shadow-lg border-l-8 border-[#005A8D]">
+                <p class="text-2xl md:text-3xl font-semibold text-[#005A8D] italic text-center leading-tight">
+                  "Quality is easy. Excellence is hard."
+                </p>
+              </div>
+              <div class="bg-[#FFF3E0] p-6 rounded-xl shadow-lg border-l-8 border-[#FFDDAE]">
+                <p class="text-2xl md:text-3xl font-semibold text-orange-700 italic text-center leading-tight">
+                  "AI won't replace people, <br class="sm:hidden">but people who use AI <br class="sm:hidden">will replace people who don't."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="time-block">
+          <h3>10:30-11:00: Interactieve Dialoog: De Analogie Methode (30 min)</h3>
+          <p><strong>Doel:</strong> Deelnemers de analogie-methode laten toepassen om van een BENCHMARK te leren en dit te vertalen naar hun eigen context, met aandacht voor de rol van AI. Dit is gebaseerd op het principe van "Strategy Theory Using Analogy" (Carroll & Sørensen, 2024).</p>
+          
+          <h4 class="text-lg">Stap 1: De BENCHMARK (Source) Analyseren: Causale Mechanismen (18 min)</h4>
+          <p class="text-sm mb-2"><strong>Facilitator Intro (1 min):</strong> "Laten we nu dieper graven. De weg naar excellentie begint vaak met inspiratie en het leren van anderen. We gebruiken hiervoor de analogie-denkwijze, waarbij we kijken naar de 'verticale relaties' – de causale krachten achter het succes van een benchmark." (Ref: Carroll & Sørensen, p.490, Figure 1).</p>
+          <p class="mb-1"><strong>Instructie & Post-its (Flipoverblad 4):</strong></p>
+          <ul class="list-disc text-sm">
+            <li><strong>(3 min) Identificeer je BENCHMARK:</strong> "Denk aan een BENCHMARK (organisatie, product, AI-toepassing uit de voorbereiding) die jullie inspireert m.b.t. het bereiken van excellentie. Noteer deze op een post-it en plak in de eerste kolom ('GEKOZEN BENCHMARK')."</li>
+            <li><strong>(4 min) WAT maakt excellent? (Source Conclusion):</strong> "Voor jullie gekozen BENCHMARK: WAT maakte/maakt deze concreet EXCELLENT? Beschrijf de observeerbare uitkomst, de prestatie, de 'conclusie' in de analogie. Noteer en plak in kolom 2."</li>
+            <li><strong>(6 min) HOE/WAAROM? (Verticale Relaties - Causaal Mechanisme):</strong> "Nu de cruciale stap, denkend als een strateeg: HOE/WAAROM bereikte de BENCHMARK deze excellentie? Wat was de onderliggende 'turbokracht', het causale mechanisme (de theorie) achter hun succes? Dit zijn de 'verticale relaties' die de uitkomst verklaren. Noteer en plak in kolom 3."</li>
+          </ul>
+          <p class="mt-2 text-sm"><strong>Plenaire Reflectie (4 min):</strong> Bespreek enkele voorbeelden van "HOE/WAAROM". Stel de vraag: "Zien jullie hier AI als een (potentiële) terugkerende factor in die 'turbokracht'?"</p>
+
+          <h4 class="text-lg mt-4">Stap 2: Toepassing op de TARGET (Eigen Context): Horizontale & Verticale Overwegingen (12 min)</h4>
+          <p class="text-sm mb-2"><strong>Facilitator Intro (1 min):</strong> "Nu de vertaalslag: hoe kan de 'turbokracht' (het causale mechanisme) van jullie gekozen BENCHMARK ons helpen excellentie te bereiken in *onze* context, en wat betekent dat voor onze rol en de benodigde competenties? We kijken hierbij naar de 'horizontale relaties' (overeenkomsten en verschillen)." (Ref: Carroll & Sørensen, p.490, Figure 1).</p>
+          <p class="mb-1"><strong>Instructie & Post-its (Flipoverblad 5):</strong></p>
+          <ul class="list-disc text-sm">
+            <li><strong>(3 min) OVEREENKOMSTEN (Horizontale Relaties - Positief):</strong> "Kijkend naar jullie BENCHMARK en diens 'turbokracht': Welke OVEREENKOMSTEN (technologisch, markt, proces, cultuur, etc.) zien jullie met jullie eigen context die het toepassen van een vergelijkbare 'turbokracht' hier kansrijk maken? Plak in kolom 1."</li>
+            <li><strong>(3 min) VERSCHILLEN (Horizontale Relaties - Negatief):</strong> "Welke VERSCHILLEN zijn er die een uitdaging vormen of waarvoor aanpassingen nodig zijn om die 'turbokracht' effectief te maken in onze situatie? Plak in kolom 2." (Zie Carroll & Sørensen over "negative analogies", p.488)</li>
+            <li><strong>(4 min) UNIEKE BIJDRAGE & COMPETENTIES (Target Premises & Conclusion):</strong> "Gegeven deze AI-gedreven 'turbokracht', de kansen en de uitdagingen: Wat wordt dan jullie UNIEKE MENSELIJKE BIJDRAGE en welke NIEUWE COMPETENTIES hebben jullie nodig om als AI-augmented professional deze excellentie te sturen en te realiseren in jullie target domein? Plak in kolom 3."</li>
+          </ul>
+          <p class="mt-2 text-sm"><strong>Plenaire Reflectie (1 min):</strong> Bespreek kort enkele cruciale menselijke bijdragen en competenties.</p>
+        </div>
+
+        <div class="time-block">
+          <h3>11:00-11:30: Synthese & Visie op de Dag (Flipoverblad 6) (30 min)</h3>
+          <p><strong>Doel:</strong> De inzichten consolideren en een gezamenlijke visie voor de dag formuleren.</p>
+          <ul class="list-disc">
+            <li><strong>Facilitator Aanzet (2 min):</strong> "Kijkend naar de geïdentificeerde 'turbokrachten' (causale mechanismen op Blad 4) en onze essentiële rol daarin (Blad 5), laten we onze VISIE: De Excellente AI-Augmented Professional in Actie formuleren op Flipoverblad 6. Wat zijn 2-3 kernelementen of actieprincipes die we vandaag verder gaan uitwerken?"</li>
+            <li><strong>Plenaire Discussie & Synthese (15 min):</strong> Leid een korte, gestructureerde discussie. Noteer de synthese (2-3 kernelementen/actieprincipes) op Flipoverblad 6.</li>
+            <li><strong>Vooruitblik (13 min):</strong> "Deze visie en de geïdentificeerde 'turbokrachten' vormen de rode draad voor de rest van de dag..." Geef een korte, enthousiasmerende vooruitblik op de onderwerpen van Deel 1, 2 en 3 en hoe de analogie-denkwijze en de focus op excellentie daarin terugkomen.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="mt-12 text-center">
+        <a
+          href="programma-deel1.html"
+          class="bg-[#FFDDAE] text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-opacity-80 transition duration-300 shadow-md"
+        >
+          Naar Deel 1 (Voorbeeld Deelnemerpagina) »
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <p>
+          © 2024 Mastermodule Excellentie door Design. Alle rechten voorbehouden. (Trainerversie)
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
