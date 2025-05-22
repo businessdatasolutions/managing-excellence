@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trainer: Deel 3 - Onderzoek, Solution Design & Leer en Groei</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          font-family: "Red Hat Text", sans-serif;
+        }
+      }
+      .content-section {
+        @apply mb-8 p-6 bg-white rounded-lg shadow-lg;
+      }
+      .content-section h2 {
+        @apply text-2xl font-bold text-gray-700 mb-4 pb-2 border-b-2 border-[#D4F6FF];
+      }
+      .content-section h3 {
+        @apply text-xl font-semibold text-gray-700 mt-6 mb-3;
+      }
+      .content-section h4 {
+        @apply text-lg font-semibold text-gray-600 mt-4 mb-2;
+      }
+      .content-section h5 {
+        @apply text-base font-semibold text-gray-700 mt-3 mb-1;
+      }
+      .content-section h6 {
+        /* Toegevoegd voor kleinere kopjes in deelnemer tekst indien nodig */
+        @apply text-sm font-semibold text-gray-700 mt-2 mb-1;
+      }
+      .content-section p,
+      .content-section ul,
+      .content-section ol {
+        @apply text-gray-600 leading-relaxed mb-3;
+      }
+      .content-section ul,
+      .content-section ol {
+        @apply list-inside ml-4;
+      }
+      .content-section ul {
+        @apply list-disc;
+      }
+      .content-section ol {
+        @apply list-decimal;
+      }
+      .content-section ul ul,
+      .content-section ol ol {
+        @apply ml-6 mt-1;
+      }
+      .content-section strong {
+        @apply font-semibold text-gray-700;
+      }
+      .time-block {
+        @apply bg-[#D4F6FF] bg-opacity-50 p-4 rounded-md mb-6;
+      }
+      .back-link {
+        @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors;
+      }
+      .trainer-note {
+        @apply my-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm rounded-md shadow;
+      }
+      .trainer-note strong,
+      .trainer-note .font-bold {
+        @apply font-semibold text-yellow-900;
+      }
+      .trainer-note ul {
+        @apply list-disc list-inside mt-1 space-y-1;
+      }
+      .trainer-note ul ul {
+        @apply list-disc list-inside ml-4 mt-1 space-y-px;
+      }
+      .trainer-note h5 {
+        /* Subkopjes binnen trainer notities */
+        @apply text-sm font-semibold text-yellow-900 mb-1 mt-3 underline;
+      }
+      .trainer-note ol {
+        /* Genummerde lijsten binnen trainer notities */
+        @apply list-decimal list-inside mt-1 space-y-1;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fbfbfb;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c6e7ff;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b0d9f7;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FBFBFB] text-gray-800 antialiased">
+    <!-- Header / Navbar -->
+    <header class="bg-[#C6E7FF] shadow-md">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-bold text-gray-700 hover:text-gray-900"
+          >Excellentie door Design: AI (Trainerportaal)</a
+        >
+        <nav class="space-x-4">
+          <a href="index.html" class="text-gray-700 hover:text-[#FFDDAE]"
+            >Home</a
+          >
+          <a
+            href="programma.html"
+            class="text-gray-700 hover:text-[#FFDDAE] font-semibold"
+            >Programma Overzicht</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+      <a href="programma.html" class="back-link"
+        >« Terug naar Programma Overzicht (Trainer)</a
+      >
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Trainer Gids: Deel 3 - Onderzoek, Solution Design & Leer en Groei als
+        AI-Augmented Professional
+      </h1>
+      <p class="text-xl text-gray-500 mb-8">
+        Tijdsbestek: 15:30 – 17:00 (90 min)
+      </p>
+
+      <div class="trainer-note">
+        <p>
+          <strong>Overkoepelend Doel Deel 3:</strong> Deelnemers in staat
+          stellen de opgedane kennis te consolideren, een concrete AI-gedreven
+          oplossing voor hun context te ontwerpen, en te reflecteren op hun
+          persoonlijke ontwikkeling als AI-augmented professional. De focus ligt
+          op het verankeren van het geleerde en het vertalen naar actie en
+          continue groei.
+        </p>
+      </div>
+
+      <section class="content-section">
+        <h2>Gedetailleerde Agenda & Instructies Deel 3</h2>
+
+        <div class="time-block">
+          <h3 class="!mt-0">
+            15:30 – 15:35: Introductie Deel 3 & De Cirkel Rondmaken (5 min)
+          </h3>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Korte recap Deel 2, introductie focus Deel 3
+            (bestendigen kennis, solution design, persoonlijke ontwikkeling).
+          </p>
+          <div class="trainer-note">
+            <p><strong>Trainer Instructies (5 min):</strong></p>
+            <ul>
+              <li>
+                <strong>Recapitulatie Deel 2 (1 min):</strong> Vat kort de
+                concrete toepassingen van AI in procesoptimalisatie en
+                risicoverbetering samen.
+              </li>
+              <li>
+                <strong>Introductie Deel 3 (3 min):</strong> Schets de focus:
+                bestendigen van kennis, concreet ontwerpen van oplossingen, en
+                de persoonlijke ontwikkeling die nodig is om als AI-augmented
+                professional te excelleren.
+              </li>
+              <li>
+                <strong>Verbindende Boodschap (1 min):</strong> "We hebben de
+                'turbokrachten' (Deel 0 & 1) en toepassingsgebieden (Deel 2)
+                verkend. Nu gaan we deze kennis verankeren en vertalen naar
+                actie en groei."
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>
+            15:35 – 15:55: Onderzoek & Theoretisch Kader: Fundament voor
+            Continue Innovatie (20 min)
+          </h3>
+
+          <h4>Verdieping & Tools voor Levenslang Leren (15 min)</h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Uitleg over analogie methode, navigeren
+            AI-landschap, tools, Quality 4.0, en interactie via poll/deelronde.
+          </p>
+          <div class="time-block">
+            <h3>
+              15:35 – 15:55: Onderzoek & Theoretisch Kader: Fundament voor
+              Continue Innovatie (20 min)
+            </h3>
+
+            <h4>Verdieping & Tools voor Levenslang Leren (15 min)</h4>
+            <p class="italic text-gray-500 text-xs mb-2">
+              Deelnemer ziet: Uitleg over analogie methode, navigeren
+              AI-landschap, tools, Quality 4.0, en interactie via
+              poll/deelronde.
+            </p>
+            <div class="trainer-note">
+              <p>
+                <strong
+                  >Trainer Instructies (Verdieping & Tools - 15 min):</strong
+                >
+              </p>
+              <ul>
+                <li>
+                  <h5>Onderwerpen te behandelen:</h5>
+                  <ul>
+                    <li>
+                      <strong>Verdieping Analogie Methode (5 min):</strong>
+                      <p>
+                        Herhaal kort de kern van de analogie methode uit Deel 0:
+                        hoe het herkennen van parallellen tussen domeinen helpt
+                        om innovaties — waaronder AI-toepassingen — te vertalen
+                        naar de eigen praktijk. Benadruk dat dit geen eenmalige
+                        techniek is, maar een voortdurende mindset.
+                      </p>
+                      <p><em>Reflectievragen:</em></p>
+                      <ul>
+                        <li>
+                          Welke AI-oplossingen zie je in andere sectoren die
+                          relevant kunnen zijn voor jouw werk?
+                        </li>
+                        <li>
+                          Hoe kun je actief blijven zoeken naar bruikbare
+                          analogieën?
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Voorbeeld:</strong> MIT ontwikkelde recent een
+                        AI-model dat zelfstandig verbanden legt tussen visuele
+                        en auditieve data, zonder menselijke tussenkomst. Dit
+                        kan inspireren tot toepassingen in bijvoorbeeld
+                        klantenservice of educatie. (<a
+                          href="https://news.mit.edu/2025/ai-learns-how-vision-and-sound-are-connected-without-human-intervention-0522"
+                          target="_blank"
+                          >MIT News</a
+                        >)
+                      </p>
+                    </li>
+                    <li>
+                      <strong>Navigeren in het AI-Landschap (7 min):</strong>
+                      <p>
+                        <em>Uitdaging:</em> Hoe blijf je als professional
+                        up-to-date in een snel veranderend AI-landschap?
+                      </p>
+                      <p><strong>🔧 Tools voor continu leren:</strong></p>
+                      <ul>
+                        <li>
+                          <strong>ResearchRabbit:</strong> AI-gedreven tool voor
+                          het ontdekken en visualiseren van relevante
+                          wetenschappelijke publicaties.
+                        </li>
+                        <li>
+                          <strong>Google Scholar Alerts:</strong> Ontvang
+                          meldingen bij nieuwe publicaties over jouw
+                          interessegebieden.
+                        </li>
+                        <li>
+                          <strong>Nieuwsbrieven:</strong>
+                          <ul>
+                            <li>
+                              <em>MIT Technology Review – The Algorithm:</em>
+                              Wekelijkse updates over AI-ontwikkelingen.
+                            </li>
+                            <li>
+                              <em>Stanford HAI Newsletter:</em> Inzichten van
+                              het Stanford Institute for Human-Centered AI.
+                            </li>
+                            <li>
+                              <em>The Batch van DeepLearning.AI:</em> Een
+                              wekelijkse nieuwsbrief met het laatste AI-nieuws,
+                              inzichten en analyses, samengesteld door Andrew Ng
+                              en zijn team. Deze nieuwsbrief biedt een overzicht
+                              van belangrijke ontwikkelingen en trends in AI,
+                              gericht op zowel technische als zakelijke
+                              professionals. (<a
+                                href="https://www.deeplearning.ai/the-batch/"
+                                target="_blank"
+                                >The Batch</a
+                              >)
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <p><strong>🧭 Strategieën:</strong></p>
+                      <ul>
+                        <li>
+                          <strong>Community of Practice:</strong> Sluit je aan
+                          bij interne of externe netwerken om kennis en
+                          ervaringen te delen.
+                        </li>
+                        <li>
+                          <strong>Volg thought leaders:</strong> Blijf op de
+                          hoogte via blogs en social media van experts zoals
+                          Fei-Fei Li (Stanford HAI) en Erik Brynjolfsson (MIT).
+                        </li>
+                        <li>
+                          <strong>Experimenteer laagdrempelig:</strong> Gebruik
+                          toegankelijke AI-tools zoals ChatGPT of DALL·E om
+                          vertrouwd te raken met de mogelijkheden.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Quality 4.0 Visie (3 min):</strong>
+                      <p>
+                        <em>Definitie:</em> Quality 4.0 integreert digitale
+                        technologieën zoals AI, IoT en big data in
+                        kwaliteitsmanagement, met als doel proactieve en
+                        intelligente kwaliteitszorg.
+                      </p>
+                      <p><strong>AI als kerncomponent:</strong></p>
+                      <ul>
+                        <li>
+                          <strong>Connectiviteit:</strong> Real-time
+                          data-uitwisseling tussen systemen.
+                        </li>
+                        <li>
+                          <strong>Data-analyse:</strong> Voorspellende inzichten
+                          door machine learning.
+                        </li>
+                        <li>
+                          <strong>Intelligentie:</strong> Automatische detectie
+                          van afwijkingen en suggesties voor verbeteringen.
+                        </li>
+                        <li>
+                          <strong>Automatisering:</strong> Geautomatiseerde
+                          kwaliteitscontroles en rapportages.
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Voorbeeld:</strong> De AI Index 2025 van
+                        Stanford toont een aanzienlijke toename in
+                        AI-toepassingen binnen kwaliteitsbeheer, met nadruk op
+                        verantwoord gebruik en transparantie. (<a
+                          href="https://hai.stanford.edu/ai-index/2025-ai-index-report"
+                          target="_blank"
+                          >Stanford HAI</a
+                        >)
+                      </p>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <h5>Interactie (geïntegreerd):</h5>
+                  <ul>
+                    <li>
+                      <strong
+                        >Snelle Poll (2 min, digitaal of handopsteken):</strong
+                      >
+                      "Wie gebruikt al een specifieke tool of methode om
+                      AI-ontwikkelingen te volgen? Welke?"
+                    </li>
+                    <li>
+                      <strong
+                        >Korte Deelronde (optioneel, 1-2 min na bespreking
+                        tools/strategieën):</strong
+                      >
+                      Vraag 1-2 deelnemers welke genoemde tool/methode hen het
+                      meest aanspreekt en waarom, of welke ze al succesvol
+                      gebruiken.
+                    </li>
+                  </ul>
+                </li>
+
+                <h5>💡 Aanvullende Ideeën:</h5>
+                <ul>
+                  <li>
+                    <strong>AI-ethiek en veiligheid:</strong> Bespreek het
+                    belang van ethische richtlijnen en transparantie bij
+                    AI-implementaties, zoals benadrukt in recente rapporten over
+                    AI-veiligheid.
+                  </li>
+                  <li>
+                    <strong>Open-source AI:</strong> Verken de groeiende rol van
+                    open-source modellen zoals Meta’s LLaMA en hun impact op
+                    toegankelijkheid en innovatie.
+                  </li>
+                  <li>
+                    <strong>AI in jouw sector:</strong> Analyseer specifieke
+                    AI-toepassingen binnen jouw vakgebied en hoe deze bijdragen
+                    aan kwaliteitsverbetering.
+                  </li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+
+          <h4>Brug naar Solution Design (5 min)</h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Uitleg dat de voorbereide Solution Designs nu worden
+            toegepast; instructie voor pitches.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Brug naar Solution Design - 5
+                min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Vat samen: "Met deze basis voor continue ontwikkeling en het
+                scouten van innovaties, gaan we nu zelf aan de slag met het
+                ontwerpen van concrete oplossingen."
+              </li>
+              <li>
+                Koppel aan Deel 2: "De 'Solution Designs' waar jullie in Deel 2
+                (optioneel) al een begin mee hebben gemaakt, of de ideeën die
+                daaruit zijn voortgekomen, zijn de eerste stap in het toepassen
+                van deze kennis." (Als er geen formele voorbereiding was in Deel
+                2, pas dit aan naar: "De inzichten uit Deel 2 gaan we nu
+                gebruiken...")
+              </li>
+              <li>
+                <strong>Instructie voor de pitches:</strong> Geef duidelijke
+                instructies voor de komende pitches. Benadruk focus op:
+                <ul>
+                  <li>Kern van het probleem en de oplossing.</li>
+                  <li>Verwachte impact (link naar excellentie).</li>
+                  <li>De rol van de mens (AI-augmented).</li>
+                  <li>Timing (bijv. 4-5 min pitch, 3 min Q&A).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>
+            15:55 – 16:35: Solution Designs: Van Idee naar Impact (40 min)
+          </h3>
+
+          <h4>Pitch & Peer-Review van "Solution Designs" (30 min)</h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Uitleg over het presenteren van hun AI-toepassing en
+            het ontvangen van peer-feedback.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Pitches & Peer-Review - 30 min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <strong>Doel:</strong> Groepen presenteren hun ontworpen
+                AI-toepassing (gebaseerd op ideeën uit Deel 2 of nieuw
+                ontwikkeld) en ontvangen constructieve feedback.
+              </li>
+              <li>
+                <h5>Opzet:</h5>
+                <ol>
+                  <li>
+                    <strong>Groepsgrootte/Tijd:</strong> Beheer de tijd strak.
+                    Afhankelijk van het aantal groepen (bij 3-4 groepen totaal,
+                    ca. 7-8 minuten per groep: 4-5 min pitch, 3 min Q&A/directe
+                    feedback). Communiceer de tijdslimiet duidelijk.
+                  </li>
+                  <li>
+                    <strong>Pitch Focus (herhaal kernpunten):</strong>
+                    <ul>
+                      <li>
+                        Het specifieke kwaliteits-/risicoprobleem dat wordt
+                        aangepakt.
+                      </li>
+                      <li>
+                        De voorgestelde AI-oplossing (welke 'turbokracht' wordt
+                        ingezet?).
+                      </li>
+                      <li>
+                        De verwachte impact op het overtreffen van
+                        verwachtingen/excellentie.
+                      </li>
+                      <li>
+                        De cruciale menselijke rol in de oplossing
+                        (AI-augmented).
+                      </li>
+                      <li>Potentiële uitdagingen bij implementatie.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Peer-Review Structuur:</strong> Instrueer de
+                    luisterende groepen om feedback te geven. Gebruik post-its
+                    per presenterende groep, met twee categorieën:
+                    <ul>
+                      <li>
+                        "<strong>Sterk punt / Inspirerend idee:</strong> ..."
+                      </li>
+                      <li>
+                        "<strong>Suggestie / Vraag ter overweging:</strong> ..."
+                      </li>
+                    </ul>
+                    Laat de post-its na elke pitch aan de presenterende groep
+                    geven.
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <strong>Rol Facilitator:</strong>
+                <ul>
+                  <li>Bewaak de tijd zeer strak. Gebruik een timer.</li>
+                  <li>
+                    Zorg voor een constructieve en veilige sfeer voor feedback.
+                  </li>
+                  <li>
+                    Stel eventueel aanvullende, verdiepende vragen om de
+                    discussie te stimuleren of onduidelijkheden weg te nemen.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <h4>
+            Plenaire Discussie: Investeringen & Implementatie Hobbels (10 min)
+          </h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Uitleg over de plenaire discussie over investeringen
+            en uitdagingen, mogelijk met een Word Cloud.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Plenaire Discussie - 10 min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <strong>Doel:</strong> Patronen en algemene lessen uit de
+                pitches destilleren m.b.t. implementatie.
+              </li>
+              <li>
+                <h5>Te bespreken onderwerpen:</h5>
+                <ul>
+                  <li>
+                    Vraag naar de benodigde investeringen die uit de pitches
+                    naar voren kwamen (niet alleen financieel, maar ook in
+                    'human, information en organizational capital').
+                  </li>
+                  <li>
+                    Inventariseer welke typische uitdagingen (bijv.
+                    datakwaliteit, adoptie, ethiek, verandermanagement) genoemd
+                    werden.
+                  </li>
+                  <li>
+                    Vraag naar cruciale succesfactoren voor de implementatie van
+                    AI-gedreven excellentie, gebaseerd op de ontwerpen.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h5>Interactie:</h5>
+                <ul>
+                  <li>
+                    <strong
+                      >"Word Cloud" van Investeringen (optioneel, 3
+                      min):</strong
+                    >
+                    Laat deelnemers (digitaal of op post-its) de belangrijkste
+                    investeringscategorieën noteren die ze hebben
+                    gehoord/bedacht. Cluster deze plenair op een
+                    flipover/whiteboard.
+                  </li>
+                  <li>
+                    <strong>Korte Reflectie (3 min):</strong> "Welke van de
+                    genoemde uitdagingen herken je het meest in jouw eigen
+                    organisatie? Waarom?" Vraag 1-2 deelnemers om een korte
+                    reactie.
+                  </li>
+                  <li>Vat de belangrijkste patronen samen (4 min).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <h3>
+            16:35 – 16:55: Leer en Groei: De Excellente AI-Augmented
+            Professional Vormgeven (20 min)
+          </h3>
+          <h4>Reflectie & Competentieontwikkeling (15 min)</h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Beschrijving van de reflectie op de AI-stelling en
+            het opstellen van een persoonlijk groeiplan.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Reflectie & Competentieontwikkeling - 15
+                min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                <h5>Activiteit 1: De Stelling Herbezocht (7 min)</h5>
+                <ul>
+                  <li>
+                    Breng de stelling terug (visueel of verbaal):
+                    <em
+                      >"AI won't replace people, but people who use AI will
+                      replace people who don't."</em
+                    >
+                  </li>
+                  <li>
+                    <strong>Individuele Reflectie / Duo's (4 min):</strong> Stel
+                    de vragen:
+                    <ul>
+                      <li>
+                        "Welke 2-3 *nieuwe of versterkte competenties* (hard
+                        skills, soft skills, mindset) zijn voor jou, na vandaag,
+                        essentieel om een excellente AI-augmented professional
+                        te zijn in kwaliteits- en risicomanagement?"
+                      </li>
+                      <li>
+                        "Hoe verhouden deze competenties zich tot 'menselijke
+                        excellentie'?"
+                      </li>
+                    </ul>
+                    Laat deelnemers voor zichzelf schrijven of kort in duo's
+                    bespreken.
+                  </li>
+                  <li>
+                    <strong>Plenair Delen (3 min):</strong> Vraag enkele
+                    deelnemers om kerncompetenties te delen. Noteer deze op een
+                    flipover. Zoek naar overeenkomsten en verschillen.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h5>
+                  Activiteit 2: "Mijn Persoonlijke AI-Groeiplan" (Concept) (8
+                  min)
+                </h5>
+                <ul>
+                  <li>
+                    <strong>Doel:</strong> Deelnemers aanzetten tot het
+                    formuleren van concrete, persoonlijke ontwikkelstappen.
+                  </li>
+                  <li>
+                    <strong
+                      >Individuele Oefening (werkblad/notitieblok, 6
+                      min):</strong
+                    >
+                    Geef de volgende instructies:
+                    <ul>
+                      <li>
+                        "Welk *concreet AI-gerelateerd onderwerp* (uit de module
+                        of eigen interesse) wil ik de komende 3 maanden verder
+                        onderzoeken/leren?"
+                      </li>
+                      <li>
+                        "Welke *eerste kleine stap* kan ik volgende week al
+                        zetten om hiermee te beginnen (bijv. een artikel lezen,
+                        een tool uitproberen, een collega spreken)?"
+                      </li>
+                      <li>
+                        "Hoe kan ik de *analogie methode* of een van de
+                        *continu-leren-tools* (uit het vorige blok) hiervoor
+                        inzetten?"
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    Benadruk dat dit input is voor het "Personal Retrospective"
+                    formulier dat volgt. (2 min)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <h4>Afronding Deel 3 & Brug naar de Grote Finale (5 min)</h4>
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Samenvatting belang van nieuwsgierigheid, ontwerpen,
+            competentieontwikkeling.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong>Trainer Instructies (Afronding Deel 3 - 5 min):</strong>
+            </p>
+            <ul>
+              <li>
+                Vat de essentie van Deel 3 samen: het belang van continue
+                nieuwsgierigheid, het durven ontwerpen van oplossingen (ook al
+                zijn ze nog niet perfect), en de bewuste ontwikkeling van
+                competenties om relevant te blijven en waarde toe te voegen in
+                een door AI beïnvloede wereld.
+              </li>
+              <li>
+                Maak de brug naar de afsluiting: "We hebben nu de tools, de
+                inzichten, en een eerste aanzet tot een persoonlijk actieplan.
+                Laten we dit afronden met een persoonlijke reflectie."
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h3>17:00 – 17:30: Afronding & Jouw Persoonlijke Terugblik (30 min)</h3>
+        <div class="time-block">
+          <p class="italic text-gray-500 text-xs mb-2">
+            Deelnemer ziet: Uitleg over het invullen van het Personal
+            Retrospective formulier.
+          </p>
+          <div class="trainer-note">
+            <p>
+              <strong
+                >Trainer Instructies (Afronding & Personal Retrospective - 30
+                min):</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Deze sessie sluit direct aan op de laatste activiteit van Deel
+                3.
+              </li>
+              <li>
+                <strong>Introductie Personal Retrospective (5 min):</strong> Leg
+                het doel en de structuur van het "Personal Retrospective"
+                formulier uit (als dit een fysiek of digitaal formulier is dat
+                wordt uitgedeeld/getoond). Benadruk dat dit een moment is voor
+                individuele reflectie en het vastleggen van persoonlijke
+                leerpunten en voornemens. Moedig aan om de output van de "Mijn
+                Persoonlijke AI-Groeiplan" oefening hierin te verwerken.
+              </li>
+              <li>
+                <strong>Individueel Invullen (20 min):</strong> Geef deelnemers
+                voldoende tijd om het formulier rustig en reflectief in te
+                vullen. Zorg voor een rustige omgeving. Loop rond voor eventuele
+                vragen, maar stoor het individuele proces niet onnodig.
+              </li>
+              <li>
+                <strong>Afsluitende Woorden & Dank (5 min):</strong> Bedank de
+                deelnemers voor hun actieve participatie en inzet gedurende de
+                mastermodule. Wens hen succes met het toepassen van het geleerde
+                en hun verdere ontwikkeling als AI-augmented professionals. Geef
+                eventuele praktische informatie over certificaten, follow-up,
+                etc.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Interactieve Elementen in Deel 3 (Overzicht voor Trainer)</h2>
+        <p class="italic text-gray-500 text-xs mb-2">
+          Deelnemer ziet: Samenvatting van de interactieve elementen.
+        </p>
+        <div class="trainer-note">
+          <p>
+            <strong
+              >Checklist Interactieve Elementen voor Trainer in Deel 3:</strong
+            >
+          </p>
+          <ul>
+            <li>
+              Voorbereiding voor snelle polls en deelrondes (vragen, methode).
+            </li>
+            <li>Structuur en timing voor pitches van Solution Designs.</li>
+            <li>
+              Materialen voor peer-review (post-its, pennen). Instructies voor
+              feedbackkader.
+            </li>
+            <li>
+              Voorbereiding plenaire discussie (whiteboard/flipover voor Word
+              Cloud, sturende vragen).
+            </li>
+            <li>Stellingen voor reflectie (visueel of verbaal).</li>
+            <li>
+              Eventueel een (digitaal) werkblad of duidelijke instructie voor de
+              "Mijn Persoonlijke AI-Groeiplan" oefening.
+            </li>
+            <li>
+              "Personal Retrospective" formulieren (fysiek of digitaal) en
+              instructies hiervoor.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="mt-12 text-center">
+        <a
+          href="programma.html"
+          class="bg-[#FFDDAE] text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-opacity-80 transition duration-300 shadow-md"
+        >
+          Terug naar Programma Overzicht (Trainer)
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <p>
+          © 2024 Mastermodule Excellentie door Design. Alle rechten
+          voorbehouden. (Trainerversie)
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
